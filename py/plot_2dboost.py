@@ -43,10 +43,6 @@ boostS= zeros((nas,nms))
 
 #Loop over bins, restore and put in the right matrix
 for bb in range(16):
-    if bb==0:
-        continue
-    if bb>2:
-        break
     #construct filenames
     bin= bb+1
     restorefilename= '2dboost'+str(logMh)+'_'+str(nas)+'_'+str(bin)+'.sav'
