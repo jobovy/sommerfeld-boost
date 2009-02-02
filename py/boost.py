@@ -62,7 +62,7 @@ def deriv(y,t,mv,a,gamma,einasto,n,q,A,C,K1,K2,vdisp_sat,somm_sat):
     return 1./(1.+(1.-q)*LL) * 1./t * (A*pow(q,n)*(somm+y)*LL - n*y-y*dlnLdlnM)  
 
 
-def boost(Mh,mv=10**-2,a=10**-1,gamma=1,einasto=0,n=-0.9,q=0.1,A=2.3*10**-2,C=2.5*10**-2,K1=10.5,K2=-.11,mo=10**-6):
+def boost(Mh,mv=10**-2,a=10**-1,nosomm=0,gamma=1,einasto=0,n=-0.9,q=0.1,A=2.3*10**-2,C=2.5*10**-2,K1=10.5,K2=-.11,mo=10**-6):
     """Calculates the boost factor for a given halo mass
 
     Input:
@@ -78,32 +78,32 @@ def boost(Mh,mv=10**-2,a=10**-1,gamma=1,einasto=0,n=-0.9,q=0.1,A=2.3*10**-2,C=2.
        K1      - normalization of concentration-mass relation
        K2      - exponent of concentration-mass relation
        mo      - free-streaming limit
+       nosomm  - DON'T include Sommerfeld enhancement
 
     Output:
        boost
     """
 
-    #To speed up the calculation, first find where the Sommerfeld enhancement saturates, and pass that value to the differential equation to use for smaller velocities.
-    vdisp_Mh= 2.5*10**-2*pow(Mh,1./3.)/(3*10**5)
-    vdisps=[vdisp_Mh,vdisp_Mh*10**-1,vdisp_Mh*10**-2,vdisp_Mh*10**-3,vdisp_Mh*10**-4,vdisp_Mh*10**-5,vdisp_Mh*10**-6,vdisp_Mh*10**-7,vdisp_Mh*10**-8,vdisp_Mh*10**-9,vdisp_Mh*10**-10]
-    #vdisps=[10**-2,10**-3,10**-4,10**-5,10**-6,10**-7,10**-8,10**-9,10**-10,10**-11,10**-12]
-    somms=zeros(11)
-    indx=0
-    for ii in range(11):
-        somms[ii]= avg_enhance(mv,1.,a,vdisps[ii])
-        if ii > 0:
-            if somms[ii] <= 1.1*somms[ii-1]:
-                break
-            else:
-                indx+= 1
+    if nosomm == 0:
+        #To speed up the calculation, first find where the Sommerfeld enhancement saturates, and pass that value to the differential equation to use for smaller velocities.
+        vdisp_Mh= 2.5*10**-2*pow(Mh,1./3.)/(3*10**5)
+        vdisps=[vdisp_Mh,vdisp_Mh*10**-1,vdisp_Mh*10**-2,vdisp_Mh*10**-3,vdisp_Mh*10**-4,vdisp_Mh*10**-5,vdisp_Mh*10**-6,vdisp_Mh*10**-7,vdisp_Mh*10**-8,vdisp_Mh*10**-9,vdisp_Mh*10**-10]
+        #vdisps=[10**-2,10**-3,10**-4,10**-5,10**-6,10**-7,10**-8,10**-9,10**-10,10**-11,10**-12]
+        somms=zeros(11)
+        indx=0
+        for ii in range(11):
+            somms[ii]= avg_enhance(mv,1.,a,vdisps[ii])
+            if ii > 0:
+                if somms[ii] <= 1.1*somms[ii-1]:
+                    break
+                else:
+                    indx+= 1
+        vdisp_sat= vdisps[indx]
+        somm_sat= somms[indx]
+    else:
+        vdisp_sat=10*Mh
+        somm_sat= 1
 
-    #print indx
-    #print somms
-
-    vdisp_sat= vdisps[indx]
-    somm_sat= somms[indx]
-
-    #print somm_sat
 
     start= mo
     end= Mh
