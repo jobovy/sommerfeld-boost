@@ -53,6 +53,7 @@
 \newcommand{\clumpboost}{\ensuremath{\mathcal{C}}}
 \newcommand{\alphaEinasto}{\ensuremath{\alpha}}
 \newcommand{\Msol}{\ensuremath{M_{\odot}}}
+\newcommand{\Msun}{\Msol}
 \newcommand{\Mvir}{\ensuremath{M_{\mbox{{\footnotesize vir}}}}}
 \newcommand{\Rvir}{\ensuremath{r_{\mbox{{\footnotesize vir}}}}}
 \newcommand{\conc}{\ensuremath{c}}
@@ -840,6 +841,54 @@ this gives
 \end{equation}
 Therefore, we will use (as a rough approximation) the scaling relation
 given in \eqnname\ (\ref{eq:vdispscaling}).
+
+
+
+
+
+
+
+\begin{figure*}[t]
+\includegraphics[clip=]{2dboost8_65.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 418 474
+%\includegraphics[clip=]{avg-5_128.eps}%%BoundingBox: 178 291 400 474
+%\includegraphics[clip=]{avg-6_128.eps}%%BoundingBox: 190 291 418 474
+%\caption{Sommerfeld enhancement factor as a function of the particle
+%physics parameters averaged over a Maxwell-Boltzman velocity
+%distribution with velocity dispersion \sigv\ for four different orders
+%of magnitude of the velocity dispersion (all velocities are relative
+%to the speed of light).}%
+\label{fig:subboost}%
+\end{figure*}
+
+
+
+
+
+
+\begingroup
+\squeezetable
+\begin{table}[t]
+\begin{ruledtabular}
+\begin{tabular}{lrr@{.}lr@{.}lr@{.}lr@{ $\times$ }l}
+dSph & \dist\ & \multicolumn{2}{c}{\sigv}\ & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{2}{c}{$\rhos^2 \rs^3$}\\
+& [kpc] & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[$\Msun$ kpc$^{-3}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{2}{c}{[$\Msun^2$ kpc$^{-3}$]}\\[4pt]
+\hline
+Ursa Minor.......... & 66 & 15&0 & 1&2 $\times$ $10^8$ & 0&6 & 3& 10$^{15}$\\
+Draco................... & 80 & 5&5 &&&&&&\\
+Sculptor............... & 79 & 8&5&&&&&&\\
+Fornax................. & 138 & 11&1&&&&&&\\
+Carina.................. & 101 & 6&8 &&&&&&\\
+Sextans................ & 86 & 5&8 &&&&&&\\
+Ursa Major II....... & 32 & && 3&0 $\times$ $10^8$& 0&3  & 8&10$^{14}$\\
+Coma Berenices.... & 44 &&& 3&0 $\times$ $10^8$ & 0&3 & 8&10$^{14}$\\
+Willman I............. & 38 &&& 5&5 $\times$ $10^8$ & 0&2 & 1&10$^{15}$\\
+Segue I.................. & 23 &&&&
+\end{tabular}
+\end{ruledtabular}
+\caption{Properties of the dwarf Spheroidals used in this study.}\label{tab:dsphs}
+\end{table}
+\endgroup
 
 
 \section{A typical distribution of signals in a halo}
