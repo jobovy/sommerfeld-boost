@@ -100,7 +100,7 @@ if os.path.exists(savefilename):
     mv= data['mv']
     a= data['a']
     redboostS= data['redboostS']
-    print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nms+jj+1)+'/'+str(nms*nas)
+    print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nas+jj+1)+'/'+str(nms*nas)
 else:
     redboostS= zeros((nms,nas))
     ii= 0
@@ -112,7 +112,7 @@ while ii < nms:
         somm= avg_enhance(mv[ii],m,a[jj],vdisp)
         redboostS[ii,jj]= boostS[ii,jj]-log10(somm*(1.0+subboost))
         #print boostS[ii,jj], log10(somm*(1+subboost))
-        sys.stdout.write('\r'+str(ii*nms+jj+1)+'/'+str(nms*nas))
+        sys.stdout.write('\r'+str(ii*nas+jj+1)+'/'+str(nms*nas))
         sys.stdout.flush()
         jj= jj+1
         data={'mv':mv,'a':a,'redboostS':redboostS,'nms':nms,'nas':nas,'ii':ii,'jj':jj}
@@ -147,7 +147,7 @@ im= imshow(redboostS,origin='lower',#cmap=cm.gray,
 axis([-3,-1,-5,-2])
 ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
-text(-2,-4.75,r'$M = 10^{'+str(logMh)+r'} M_{\odot}$')#,fontsize=16)
+text(-2,-4.75,r'$M = 10^{'+str(logMh)+r'} M_{\odot}$',color='w')#,fontsize=16)
 CB1= colorbar(im,shrink=0.87)
 levels=linspace(0,5,11)
 #cont= contour(data['S'],levels,origin='lower',linewidths=1,colors='k',
@@ -157,7 +157,7 @@ levels=linspace(0,5,11)
 #Move the 2 colorbars on top of each other
 #ll,bb,ww,hh = CB2.ax.get_position()
 #CB1.ax.set_position([ll, bb, ww, hh])
-CB1.set_label(r'$\log_{10}\left[\frac{\mathcal{B}}{S(M)(1+B(M))}\right]$')#,fontsize=16)
+CB1.set_label(r'$\log_{10}\left[\frac{\mathcal{B}}{S(M)(1+B_0(M))}\right]$')#,fontsize=16)
 
 savefig(plotfilename,format='eps')
 

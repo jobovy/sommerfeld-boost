@@ -26,10 +26,6 @@ def deriv(y,t,mv,a,gamma,einasto,n,q,A,C,K1,K2,vdisp_sat,somm_sat):
     Output:
        derivative
     """
-    #Diagnostics, print M and B(M)
-    #print t
-    #print y
-
     #Calculate each factor/term in turn
     #First calculate the concentration
     conc= K1*pow(t,K2)/pow(10.,K2*12)

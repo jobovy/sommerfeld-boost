@@ -4,6 +4,7 @@
 #argument1: log_10 Mh
 #argument2: grid (default: 64), should be divisible by 16!
 #argument3: bin number (bins go vertical)
+#argument4: Einasto alpha, or gamma NFW (based on the value)
 
 from math import *
 from numpy import *
@@ -32,13 +33,25 @@ if len(sys.argv) > 3:
     bin= int(sys.argv[3])
 else:
     bin= 1
+if len(sys.argv) > 4:
+    gamma= double(sys.argv[4])
+    if gamma > 0.4:
+        einasto= 0
+    else:
+        einasto= 1
+else:
+    gamma= 1.
+    einasto= 0
 mv= linspace(-5,-2,nms)
 mv= 10**mv
 a= linspace(-3,-1,nas)
 a= 10**a
     
 #construct filenames
-savefilename= '2dboost'+str(logMh)+'_'+str(nas)+'_'+str(bin)+'.sav'
+savefilename= '2dboost'+str(logMh)+'_'+str(nas)
+if len(sys.argv) > 4:
+    savefilename+= '_'+str(gamma)
+savefilename+='_'+str(bin)+'.sav'
 
 if os.path.exists(savefilename):
     savefile=open(savefilename,'r+')
@@ -67,7 +80,7 @@ else:
 if bin != 17:
     while jj < bin*(nas-1)/nbins:
         while ii < nms:
-            boo= boost(Mh,mv[ii],a[jj])
+            boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto)
             so= avg_enhance(mv[ii],m,a[jj],vdisp)
             S[ii,jj]= log10(so+boo)
             sys.stdout.write('\r'+str(ii+(jj-(bin-1)*(nas-1)/nbins)*nms+1)+'/'+str(nms*(nas-1)/nbins))
@@ -82,7 +95,7 @@ if bin != 17:
     sys.stdout.write('\n')
 else:
     while ii < nms:
-        boo= boost(Mh,mv[ii],a[jj])
+        boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto)
         so= avg_enhance(mv[ii],m,a[jj],vdisp)
         S[ii,jj]= log10(so+boo)
         sys.stdout.write('\r'+str(ii+(jj-(bin-1)*(nas-1)/nbins)*nms+1)+'/'+str(nms*(nas-1)/nbins))
