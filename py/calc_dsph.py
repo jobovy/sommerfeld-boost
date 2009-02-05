@@ -1,7 +1,7 @@
-#Calculate the boost for a halo, by manually parallalizing the calculation
-#Makes matrix of total boost for a halo of mass Mh
+#Calculate the flux for a dSph, by manually parallalizing the calculation
+#Makes matrix of total flux as a
 #function of m_V/m and alpha
-#argument1: log_10 Mh
+#argument1: dsph
 #argument2: grid (default: 64), should be divisible by 16!
 #argument3: bin number (bins go vertical)
 #argument4: Einasto alpha, or gamma NFW (based on the value)
@@ -15,12 +15,58 @@ import pickle
 
 #parameters
 if len(sys.argv) > 1:
-    logMh= int(sys.argv[1])
+    if sys.argv[1] == "fornax":
+        rs= 1.85
+        rhos= 10**7
+        M= 1.54*10**8
+        D= 138.
+        vdisp= 10.5
+    elif sys.argv[1] == "leoI":
+        rs= 2.77
+        rhos= 10**7
+        M= 5.16*10**8
+        D= 250.
+        vdisp= 8.8
+    elif sys.argv[1] == "sculptor":
+        rs= 2.77
+        rhos= 10**7
+        M= 5.16*10**8
+        D= 79.
+        vdisp= 6.6
+    elif sys.argv[1] == "leoII":
+        rs= 1.85
+        rhos= 10**7
+        M= 1.54*10**8
+        D= 205.
+        vdisp= 6.7
+    elif sys.argv[1] == "sextans":
+        rs= 0.92
+        rhos= 10**7
+        M= 1.9*10**7
+        D= 86.
+        vdisp= 6.6
+    elif sys.argv[1] == "carina":
+        rs= 1.39
+        rhos= 1.13*10**7
+        M= 7.37*10**7
+        D= 101.
+        vdisp= 6.8
+    elif sys.argv[1] == "ursaminor":
+        rs= 2.77
+        rhos= 10**7
+        M= 5.15*10**8
+        D= 66.
+        vdisp= 9.3
+    elif sys.argv[1] == "draco":
+        rs= 3.7
+        rhos= 10**7
+        M= 1.23*10**8
+        D= 82.
+        vdisp= 9.5
 else:
-    print "No Mh given, returning..."
+    print "No dsph given, returning..."
     sys.exit(-1)
-Mh=10**logMh
-vdisp= 2.5*10**-2*pow(Mh,1./3.)/(3*10**5)
+vdisp= vdisp/(3*10**5)
 m=1.0
 if len(sys.argv) > 2:
     nms= int(sys.argv[2])/2*3+1
@@ -48,7 +94,7 @@ a= linspace(-3,-1,nas)
 a= 10**a
     
 #construct filenames
-savefilename= '2dboost'+str(logMh)+'_'+str(nas)
+savefilename= 'flux_'+sys.argv[1]+'_'+str(nas)
 if len(sys.argv) > 4:
     savefilename+= '_'+str(gamma)
 savefilename+='_'+str(bin)+'.sav'
@@ -80,9 +126,9 @@ else:
 if bin != 17:
     while jj < bin*(nas-1)/nbins:
         while ii < nms:
-            boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto)
+            boo= boost(M,mv[ii],a[jj],0,gamma,einasto)
             so= avg_enhance(mv[ii],m,a[jj],vdisp)
-            S[ii,jj]= log10(so+boo)
+            S[ii,jj]= log10((so+boo)*7.*pi/6.*pow(rhos,2.)*pow(rs,3.)/pow(D,2)*4.63*10**-24)
             sys.stdout.write('\r'+str(ii+(jj-(bin-1)*(nas-1)/nbins)*nms+1)+'/'+str(nms*(nas-1)/nbins))
             sys.stdout.flush()
             ii= ii+1
@@ -95,9 +141,9 @@ if bin != 17:
     sys.stdout.write('\n')
 else:
     while ii < nms:
-        boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto)
+        boo= boost(M,mv[ii],a[jj],0,gamma,einasto)
         so= avg_enhance(mv[ii],m,a[jj],vdisp)
-        S[ii,jj]= log10(so+boo)
+        S[ii,jj]= log10((so+boo)*7.*pi/6.*pow(rhos,2.)*pow(rs,3.)/pow(D,2)*4.63*10**-24)
         sys.stdout.write('\r'+str(ii+(jj-(bin-1)*(nas-1)/nbins)*nms+1)+'/'+str(nms*(nas-1)/nbins))
         sys.stdout.flush()
         ii= ii+1

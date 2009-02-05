@@ -38,12 +38,26 @@ def deriv(y,t,mv,a,gamma,einasto,n,q,A,C,K1,K2,vdisp_sat,somm_sat):
         LL*= pow(fc,2)#we don't need to add gamma(3/gamma) since this would get divided out
         LL/= pow(special.gammainc(3./gamma,2./gamma*pow(concq,gamma)),2)#we don't need to add gamma(3/gamma) since this would get divided out
         fc*= special.gamma(3./gamma)
-        dlnLdlnM= 1.+3.*K2+2.*conc/fc*K2*(pow(2,3./gamma)*pow(gamma,1.-3./gamma)*pow(conc,2.)*exp(-2./gamma*pow(conc,gamma)))
+        #dlnLdlnM= 1.+3.*K2+2.*conc/fc*K2*(pow(2,3./gamma)*pow(gamma,1.-3./gamma)*pow(conc,2.)*exp(-2./gamma*pow(conc,gamma)))
+        dlnLdlnM= 1.+3.*K2-2.*conc/fc*K2*(pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma))))
+        print -2.*conc/fc*K2*(pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma))))
+        print special.gammainc(3./gamma,2./gamma*pow(conc,gamma))
+        print fc
+        print (pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma)))), (pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
+        print dlnLdlnM
     else:
-        fc= log(1.+conc)-conc/(1.+conc)
-        LL*= pow(fc,2)#This is only valid for NFW
-        LL/= pow(log(1+concq)-concq/(1.+concq),2)#This is only valid for NFW
-        dlnLdlnM= 1.+3.*K2+2.*conc/fc*K2*(pow(-conc,2.-gamma)*pow(1.+conc,gamma-3.))
+        if gamma == 1:
+            fc= log(1.+conc)-conc/(1.+conc)
+            LL*= pow(fc,2)#This is only valid for NFW
+            LL/= pow(log(1+concq)-concq/(1.+concq),2)#This is only valid for NFW
+        else:
+            fc= special.hyp2f1(3.-gamma,3.-gamma,4.-gamma,-conc)*pow(conc,3.-gamma)/(3.-gamma)
+            LL*= pow(fc,2)
+            LL/= pow(special.hyp2f1(3.-gamma,3.-gamma,4.-gamma,-concq)*pow(concq,3.-gamma)/(3.-gamma),2)
+        dlnLdlnM= 1.+3.*K2-2.*conc/fc*K2*(pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
+#        print (pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma)))), (pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
+#        print -2.*conc/fc*K2*(pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
+#        print dlnLdlnM
 
     vdisp= 2.5*10**-2*pow(t,1./3.)/(3*10**5)
     if vdisp <= vdisp_sat:
