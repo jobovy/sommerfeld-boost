@@ -4,6 +4,7 @@
 #argument3: number of 8.5 kpc observers
 
 from read_VL import read_VL
+import numpy
 from numpy import *
 from scipy import *
 import matplotlib
@@ -66,7 +67,7 @@ else:
     massfactor= log(2.)-1./2.
     mo= 10**-6#starting value for boost mass
     bo= 0.
-    for ii in range(VLdata.shape[0]):
+    for ii in range(50):#VLdata.shape[0]):
         sys.stdout.write('\r'+str(ii+1)+'/'+str(VLdata.shape[0]))
         sys.stdout.flush()
         if VLdata[ii,1] > main[6] or VLdata[ii,1] == 0.0:#Use 800 kpc?
@@ -79,7 +80,7 @@ else:
         if rs > VLdata[ii,6]:
             print "Warning: rs outside of tidal radius"
         rhos= 8.56*10**4/pow(rs,2.)*pow(VLdata[ii,3],2.)
-        lumdata.append(4.63*10**-9*pow(rhos,2.)*pow(rs,3.)*7.*pi/6.)
+        lumdata.append(4.63*10**-24*pow(rhos,2.)*pow(rs,3.)*7.*pi/6.)
         #calculate total mass within rs
         mass= 4.*pi*rhos*pow(rs,3.)*massfactor
         boo= boost(mass,mv,a,0,1,0,mo,bo)
@@ -88,7 +89,7 @@ else:
         lumdata.append(boo)
         lumdata.append(boost(mass,mv,a,1))
         vdisp= 2.5*10**-2*pow(mass,1./3.)/(3*10**5)
-        lumdata.append(1.)#avg_enhance(mv,1.,a,vdisp))
+        lumdata.append(avg_enhance(mv,1.,a,vdisp))
         lumdata.append(rs)
         lumdata.append(rhos)
         lumdata.append(mass)
@@ -106,8 +107,8 @@ else:
     sublumobs= zeros((nobs,nlums,natt2))
     for ii in range(nobs):
         #Generate random observer
-        phi= random.uniform(0.,2.*pi)
-        theta= random.uniform(0.,pi)
+        phi= numpy.random.uniform(0.,2.*pi)
+        theta= numpy.random.uniform(0.,pi)
         pos= array([obsR*sin(theta)*sin(phi), obsR*sin(theta)*cos(phi), obsR*cos(theta)])
         for jj in range(nlums):
             sublumobs[ii,jj,0]= sqrt( pow((sublum[jj,0]-pos[0]),2.)+pow((sublum[jj,1]-pos[1]),2.)+pow((sublum[jj,2]-pos[2]),2.))
@@ -115,7 +116,7 @@ else:
                 print "Warning: subhalo is very close"
             sublumobs[ii,jj,1]= log10(sublum[jj,3]*sublum[jj,4]/pow(sublumobs[ii,jj,0],2))
             sublumobs[ii,jj,2]= log10(sublum[jj,4])
-            sublumobs[ii,jj,3]= log10(sublum[jj,4]/(sublum[jj,5]*(1.+sublum[jj,6])))
+            sublumobs[ii,jj,3]= log10(sublum[jj,4]/(sublum[jj,6]*(1.+sublum[jj,5])))
             sublumobs[ii,jj,0]= log10(sublumobs[ii,jj,0])
             sublumobs[ii,jj,4]= sublum[jj,7]
             sublumobs[ii,jj,4]= sublum[jj,8]
@@ -130,21 +131,44 @@ plotfilename= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'dist.eps'
 
 #Plotting parameters
 fig_width = 3.25  # width in inches
-fig_height = 2.9      # height in inches
+fig_height = 3.4      # height in inches
 fig_size =  [fig_width,fig_height]
 params = {'backend': 'ps',
-          'axes.labelsize': 12,
-          'text.fontsize': 12,
-          'legend.fontsize': 12,
-          'xtick.labelsize':10,
-          'ytick.labelsize':10,
+          'axes.labelsize': 8,
+          'text.fontsize': 8,
+          'legend.fontsize': 8,
+          'xtick.labelsize':8,
+          'ytick.labelsize':8,
           'text.usetex': True,
           'figure.figsize': fig_size}
 rcParams.update(params)
 #rc('text',usetex=True)
-fig= figure()
-hist(sublumobs[0,:,0],histtype='step')
-#axis([-3,-1,-5,-2])
+fig= figure(1)
+
+subplots_adjust(left=None, bottom=None, right=None, top=None,wspace=None, hspace=0.4)
+subplot(2,2,1)
+hist(sublumobs[0,:,0],histtype='step',ec='black')
+hist(sublumobs[1,:,0],histtype='step',ec='black',linestyle='dashed')
+hist(sublumobs[2,:,0],histtype='step',ec='black',linestyle='dashdot')
+hist(sublumobs[3,:,0],histtype='step',ec='black',linestyle='dotted')
+axis([1,3,0,20])
+#ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
+xlabel(r'$\log_{10}D$ [kpc]')#,fontsize=16)
+
+subplot(2,2,2)
+hist(sublumobs[0,:,1],histtype='step',ec='black')
+hist(sublumobs[1,:,1],histtype='step',ec='black',linestyle='dashed')
+hist(sublumobs[2,:,1],histtype='step',ec='black',linestyle='dashdot')
+hist(sublumobs[3,:,1],histtype='step',ec='black',linestyle='dotted')
+
+subplot(2,2,3)
+hist(sublumobs[0,:,2],histtype='step',ec='black')
+axis([0,2,0,10])
+
+subplot(2,2,4)
+hist(sublumobs[0,:,3],histtype='step',ec='black')
+axis([-1,1,0,10])
+
 #ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 #xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
 
