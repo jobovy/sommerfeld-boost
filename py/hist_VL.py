@@ -85,7 +85,6 @@ else:
         boo= boost(mass,mv,a,0,1,0,mo,bo)
         mo= mass
         bo= boo
-        print mo, bo
         lumdata.append(boo)
         lumdata.append(boost(mass,mv,a,1))
         vdisp= 2.5*10**-2*pow(mass,1./3.)/(3*10**5)
