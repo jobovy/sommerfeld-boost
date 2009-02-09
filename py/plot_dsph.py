@@ -123,7 +123,7 @@ levels=linspace(0,5,11)
 #Move the 2 colorbars on top of each other
 #ll,bb,ww,hh = CB2.ax.get_position()
 #CB1.ax.set_position([ll, bb, ww, hh])
-CB1.set_label(r'$\log_{10}\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mbox{cm}^{-2}\mbox{ s}^{-1}$')#,fontsize=16)
+CB1.set_label(r'$\log_{10}\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
 
 savefig(plotfilename,format='eps')
 
