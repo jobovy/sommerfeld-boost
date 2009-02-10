@@ -25,11 +25,11 @@ else:
 b=10**logb
 m=1.0
 if len(sys.argv) > 2:
-    nms= int(sys.argv[2])
-    nas= int(sys.argv[2])
+    nms= int(sys.argv[2])/2*3+1
+    nas= int(sys.argv[2])+1
 else:
-    nms= 64
-    nas= 64
+    nms= 97
+    nas= 65
 mv= linspace(-5,-2,nms)
 mv= 10**mv
 a= linspace(-3,-1,nas)
@@ -54,7 +54,7 @@ if os.path.exists(savefilename):
     mv= data['mv']
     a= data['a']
     S= data['S']
-    print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nms+jj+1)+'/'+str(nms*nas)
+    print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nas+jj+1)+'/'+str(nms*nas)
 else:
     S= zeros((nas,nms))
     ii= 0
@@ -64,7 +64,7 @@ else:
 while ii < nms:
     while jj < nas:
         S[ii,jj]= log10(avg_enhance(mv[ii],m,a[jj],b))
-        sys.stdout.write('\r'+str(ii*nms+jj+1)+'/'+str(nms*nas))
+        sys.stdout.write('\r'+str(ii*nas+jj+1)+'/'+str(nms*nas))
         sys.stdout.flush()
         jj= jj+1
         data={'mv':mv,'a':a,'S':S,'nms':nms,'nas':nas,'ii':ii,'jj':jj}

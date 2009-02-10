@@ -67,7 +67,7 @@ else:
     massfactor= log(2.)-1./2.
     mo= 10**-6#starting value for boost mass
     bo= 0.
-    for ii in range(50):#VLdata.shape[0]):
+    for ii in range(VLdata.shape[0]):
         sys.stdout.write('\r'+str(ii+1)+'/'+str(VLdata.shape[0]))
         sys.stdout.flush()
         if VLdata[ii,1] > main[6] or VLdata[ii,1] == 0.0:#Use 800 kpc?
@@ -151,9 +151,9 @@ hist(sublumobs[0,:,0],histtype='step',ec='black')
 hist(sublumobs[1,:,0],histtype='step',ec='black',linestyle='dashed')
 hist(sublumobs[2,:,0],histtype='step',ec='black',linestyle='dashdot')
 hist(sublumobs[3,:,0],histtype='step',ec='black',linestyle='dotted')
-axis([1,3,0,20])
+#axis([1,3,0,20])
 #ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
-xlabel(r'$\log_{10}D$ [kpc]')#,fontsize=16)
+#xlabel(r'$\log_{10}D$ [kpc]')#,fontsize=16)
 
 subplot(2,2,2)
 hist(sublumobs[0,:,1],histtype='step',ec='black')
@@ -163,11 +163,11 @@ hist(sublumobs[3,:,1],histtype='step',ec='black',linestyle='dotted')
 
 subplot(2,2,3)
 hist(sublumobs[0,:,2],histtype='step',ec='black')
-axis([0,2,0,10])
+#axis([0,2,0,10])
 
 subplot(2,2,4)
 hist(sublumobs[0,:,3],histtype='step',ec='black')
-axis([-1,1,0,10])
+#axis([-1,1,0,10])
 
 #ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 #xlabel(r'$\log_{10}\alpha$')#,fontsize=16)

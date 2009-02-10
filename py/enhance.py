@@ -69,12 +69,12 @@ def avg_enhance(mv,m,a,b,nsamples=100,vesc=0):
     norm= 0.
 
     if vesc == 0.:
-        vesc= sqrt(2.)*b
+        vesc= 2.*sqrt(2.)*b
 
     bs= linspace(vesc/(nsamples-1.),vesc,nsamples-1)
 
     for bb in bs:
-        temp_norm= bb**2*exp(-bb**2/(2*b**2))
+        temp_norm= bb**2*exp(-bb**2/(4.*b**2))
         avg= avg+ temp_norm*enhance(mv,m,a,bb)
         norm= norm+temp_norm
 
