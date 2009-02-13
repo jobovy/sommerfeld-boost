@@ -31,25 +31,25 @@ if os.path.exists(savefilename):
     savefile=open(savefilename,'r+')
     data=pickle.load(savefile)
 else:
-    b=10**-3
+    b=10**logb
     m=1.0
     if len(sys.argv) > 2:
-        nms= int(sys.argv[2])
-        nas= int(sys.argv[2])
+        nms= int(sys.argv[2])/2*3+1
+        nas= int(sys.argv[2])+1
     else:
-        nms= 64
-        nas= 64
+        nms= 97
+        nas= 65
     mv= linspace(-5,-2,nms)
     mv= 10**mv
     a= linspace(-3,-1,nas)
     a= 10**a
     
-    S= zeros((nas,nms))
+    S= zeros((nms,nas))
     
     for ii in range(nms):
         for jj in range(nas):
             S[ii,jj]= log10(enhance(mv[ii],m,a[jj],b))
-            sys.stdout.write('\r'+str(ii*nms+jj+1)+'/'+str(nms*nas))
+            sys.stdout.write('\r'+str(ii*nas+jj+1)+'/'+str(nms*nas))
             sys.stdout.flush()
     sys.stdout.write('\n')
 

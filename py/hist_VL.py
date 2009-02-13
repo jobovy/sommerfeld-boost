@@ -11,6 +11,7 @@ import matplotlib
 matplotlib.use('PS')
 from pylab import *
 from matplotlib.pyplot import *
+from matplotlib.axes import *
 from matplotlib import rc
 from math import log, cos, sin, sqrt, log10
 from enhance import avg_enhance
@@ -48,6 +49,7 @@ if os.path.exists(savefilename):
     data=pickle.load(savefile)
     sublum=data['sublum']
     sublumobs=data['sublumobs']
+    totallum=data['totallum']
 else:
     #first calculate the masses of the subhalos and sort by ascending halo mass
     masses= zeros(VLdata.shape[0])
@@ -119,15 +121,95 @@ else:
             sublumobs[ii,jj,3]= log10(sublum[jj,4]/(sublum[jj,6]*(1.+sublum[jj,5])))
             sublumobs[ii,jj,0]= log10(sublumobs[ii,jj,0])
             sublumobs[ii,jj,4]= sublum[jj,7]
-            sublumobs[ii,jj,4]= sublum[jj,8]
-            sublumobs[ii,jj,4]= sublum[jj,9]
+            sublumobs[ii,jj,5]= sublum[jj,8]
+            sublumobs[ii,jj,6]= sublum[jj,9]
+    #Also generate 1,000 random observers and histogram the total luminosity
+    nobs2= 10000
+    totallum= zeros(nobs2)
+    for ii in range(nobs2):
+        #Generate random observer
+        phi= numpy.random.uniform(0.,2.*pi)
+        theta= numpy.random.uniform(0.,pi)
+        pos= array([obsR*sin(theta)*sin(phi), obsR*sin(theta)*cos(phi), obsR*cos(theta)])
+        for jj in range(nlums):
+            dist2= pow((sublum[jj,0]-pos[0]),2.)+pow((sublum[jj,1]-pos[1]),2.)+pow((sublum[jj,2]-pos[2]),2.)
+            totallum[ii]+= sublum[jj,3]*sublum[jj,4]/dist2
+        totallum[ii]= log10(totallum[ii])
     #Save
     savefile=open(savefilename,'w')
-    data={'sublum':sublum,'sublumobs':sublumobs}
+    data={'sublum':sublum,'sublumobs':sublumobs,'totallum':totallum}
     pickle.dump(data,savefile)
-  
+
+#Calculate log masses
+for ii in range(sublum.shape[0]):
+    sublum[ii,9]= log10(sublum[ii,9])
+
+    
 #Histogram all of this
-plotfilename= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'dist.eps'
+plotfilename1= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_1.eps'
+plotfilename2= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_2.eps'
+plotfilename3= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_3.eps'
+
+#Plotting parameters
+fig_width = 3.25  # width in inches
+fig_height = 1.6      # height in inches
+fig_size =  [fig_width,fig_height]
+params = {'backend': 'ps',
+          'axes.labelsize': 8,
+          'text.fontsize': 8,
+          'legend.fontsize': 8,
+          'xtick.labelsize':8,
+          'ytick.labelsize':8,
+          'text.usetex': True,
+          'figure.figsize': fig_size}
+rcParams.update(params)
+#rc('text',usetex=True)
+fig= figure(1)
+
+nbins= 20
+
+subplots_adjust(left=None, bottom=None, right=None, top=None,wspace=None, hspace=0.4)
+subplot(1,2,1)
+hist(sublumobs[0,:,0],bins=nbins,histtype='step',ec='black')
+hist(sublumobs[1,:,0],bins=nbins,histtype='step',ec='black',linestyle='dashed')
+hist(sublumobs[2,:,0],bins=nbins,histtype='step',ec='black',linestyle='dashdot')
+hist(sublumobs[3,:,0],bins=nbins,histtype='step',ec='black',linestyle='dotted')
+axis([0,3,0,2000])
+ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
+xlabel(r'$\log_{10}D$ [kpc]')#,fontsize=16)
+
+ax=subplot(1,2,2)
+hist(sublum[:,9],bins=nbins,histtype='step',ec='black')
+axis([3,8,0,2000])
+#ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
+xlabel(r'$\log_{10}M(<r_{-2}) [M_\odot]$')#,fontsize=16)
+ax.set_yticklabels([])
+savefig(plotfilename1,format='eps')
+
+fig= figure(2)
+subplot(1,2,1)
+hist(sublumobs[0,:,1],bins=nbins,histtype='step',ec='black')
+hist(sublumobs[1,:,1],bins=nbins,histtype='step',ec='black',linestyle='dashed')
+hist(sublumobs[2,:,1],bins=nbins,histtype='step',ec='black',linestyle='dashdot')
+hist(sublumobs[3,:,1],bins=nbins,histtype='step',ec='black',linestyle='dotted')
+axis([-16,-5,0,2000])
+#ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
+ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
+xlabel(r'$\log_{10}\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
+
+
+ax=subplot(1,2,2)
+hist(sublumobs[0,:,2],bins=nbins,histtype='step',ec='black')
+axis([6.25,7.25,0,2000])
+xlabel(r'$\log_{10}\mathcal{B}$')#,fontsize=16)
+ax.set_yticklabels([])
+
+
+#ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
+#xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
+
+
+savefig(plotfilename2,format='eps')
 
 #Plotting parameters
 fig_width = 3.25  # width in inches
@@ -142,36 +224,10 @@ params = {'backend': 'ps',
           'text.usetex': True,
           'figure.figsize': fig_size}
 rcParams.update(params)
-#rc('text',usetex=True)
-fig= figure(1)
 
-subplots_adjust(left=None, bottom=None, right=None, top=None,wspace=None, hspace=0.4)
-subplot(2,2,1)
-hist(sublumobs[0,:,0],histtype='step',ec='black')
-hist(sublumobs[1,:,0],histtype='step',ec='black',linestyle='dashed')
-hist(sublumobs[2,:,0],histtype='step',ec='black',linestyle='dashdot')
-hist(sublumobs[3,:,0],histtype='step',ec='black',linestyle='dotted')
-#axis([1,3,0,20])
-#ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
-#xlabel(r'$\log_{10}D$ [kpc]')#,fontsize=16)
-
-subplot(2,2,2)
-hist(sublumobs[0,:,1],histtype='step',ec='black')
-hist(sublumobs[1,:,1],histtype='step',ec='black',linestyle='dashed')
-hist(sublumobs[2,:,1],histtype='step',ec='black',linestyle='dashdot')
-hist(sublumobs[3,:,1],histtype='step',ec='black',linestyle='dotted')
-
-subplot(2,2,3)
-hist(sublumobs[0,:,2],histtype='step',ec='black')
-#axis([0,2,0,10])
-
-subplot(2,2,4)
-hist(sublumobs[0,:,3],histtype='step',ec='black')
-#axis([-1,1,0,10])
-
-#ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
-#xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
-
-
-savefig(plotfilename,format='eps')
-
+fig= figure(3)
+hist(totallum[0:1000],bins=nbins,histtype='step',ec='black')
+axis([-2,-1,0,250])
+ylabel(r'$N_{\mbox{{\footnotesize obs}}}$')#,fontsize=16)
+xlabel(r'$\log_{10}\mbox{Total }\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
+savefig(plotfilename3,format='eps')

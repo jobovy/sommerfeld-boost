@@ -56,7 +56,7 @@ if os.path.exists(savefilename):
     S= data['S']
     print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nas+jj+1)+'/'+str(nms*nas)
 else:
-    S= zeros((nas,nms))
+    S= zeros((nms,nas))
     ii= 0
     jj= 0
     savefile=open(savefilename,'w')

@@ -21,6 +21,30 @@ from matplotlib import rc
 
 #parameters
 if len(sys.argv) > 1:
+    if sys.argv[1] == "fornax":
+        title="Fornax"
+    elif sys.argv[1] == "leoI":
+        title="Leo I"
+    elif sys.argv[1] == "sculptor":
+        title="Sculptor"
+    elif sys.argv[1] == "leoII":
+        title="Leo II"
+    elif sys.argv[1] == "sextans":
+        title="Sextans"
+    elif sys.argv[1] == "carina":
+        title="Carina"
+    elif sys.argv[1] == "ursaminor":
+        title="Ursa Minor"
+    elif sys.argv[1] == "draco":
+        title="Draco"
+    elif sys.argv[1] == "coma":
+        title="Coma Berenices"
+    elif sys.argv[1] == "umaii":
+        title="Ursa Major II"
+else:
+    print "No dsph given, returning..."
+    sys.exit(-1)
+if len(sys.argv) > 1:
     print "Plotting "+sys.argv[1]
 else:
     print "No Mh given, returning..."
@@ -124,6 +148,7 @@ levels=linspace(0,5,11)
 #ll,bb,ww,hh = CB2.ax.get_position()
 #CB1.ax.set_position([ll, bb, ww, hh])
 CB1.set_label(r'$\log_{10}\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
+suptitle(title,x=0.6,y=0.93)
 
 savefig(plotfilename,format='eps')
 

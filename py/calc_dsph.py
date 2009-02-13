@@ -63,6 +63,18 @@ if len(sys.argv) > 1:
         M= 1.23*10**8
         D= 82.
         vdisp= 9.5
+    elif sys.argv[1] == "coma":
+        rs= 0.3
+        rhos= 3.*10**8
+        M= 1.97*10**8
+        D= 44.
+        vdisp= 4.6
+    elif sys.argv[1] == "umaii":
+        rs= 0.3
+        rhos= 3*10**8
+        M= 1.97*10**8
+        D= 32.
+        vdisp= 6.7
 else:
     print "No dsph given, returning..."
     sys.exit(-1)

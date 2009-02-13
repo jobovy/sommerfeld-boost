@@ -27,11 +27,11 @@ Mh=10**logMh
 vdisp= 2.5*10**-2*pow(Mh,1./3.)/(3*10**5)
 m=1.0
 if len(sys.argv) > 2:
-    nms= int(sys.argv[2])
-    nas= int(sys.argv[2])
+    nms= int(sys.argv[2])/2*3+1
+    nas= int(sys.argv[2])+1
 else:
-    nms= 64
-    nas= 64
+    nms= 97
+    nas= 65
 mv= linspace(-5,-2,nms)
 mv= 10**mv
 a= linspace(-3,-1,nas)
@@ -56,9 +56,9 @@ if os.path.exists(savefilename):
     mv= data['mv']
     a= data['a']
     S= data['S']
-    print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nms+jj+1)+'/'+str(nms*nas)
+    print 'restarting at ii= '+str(ii)+', jj= '+str(jj)+', at iteration '+str(ii*nas+jj+1)+'/'+str(nms*nas)
 else:
-    S= zeros((nas,nms))
+    S= zeros((nms,nas))
     ii= 0
     jj= 0
     savefile=open(savefilename,'w')
@@ -73,7 +73,7 @@ while ii < nms:
 #        print so
         S[ii,jj]= log10(so+boo)
 #        print S[ii,jj]
-        sys.stdout.write('\r'+str(ii*nms+jj+1)+'/'+str(nms*nas))
+        sys.stdout.write('\r'+str(ii*nas+jj+1)+'/'+str(nms*nas))
         sys.stdout.flush()
         jj= jj+1
         data={'mv':mv,'a':a,'S':S,'nms':nms,'nas':nas,'ii':ii,'jj':jj}
