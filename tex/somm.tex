@@ -10,6 +10,7 @@
 %\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `basename #1 .tif`.png}
 
 \newcommand{\eg}{e.g.}
+\newcommand{\ie}{i.e.}
 \newcommand{\Fermi}{\emph{Fermi}}
 \newcommand{\VL}{Via Lactea}
 \newcommand{\aquarius}{Aquarius}
@@ -40,6 +41,8 @@
 \newcommand{\lumsmoothtoo}{\ensuremath{\overline{\mathcal{L}}}}
 \newcommand{\lumsub}{\ensuremath{\lum_{\mbox{{\footnotesize sub}}}}}
 \newcommand{\boost}{\ensuremath{B}}
+\newcommand{\redboost}{\ensuremath{\mathcal{B}_{\mbox{{\footnotesize red}}}}}
+\newcommand{\totalboost}{\ensuremath{\mathcal{B}}}
 \newcommand{\redr}{\ensuremath{\tilde{r}}}
 \newcommand{\rhos}{\ensuremath{\rho_s}}
 \newcommand{\rs}{\ensuremath{r_s}}
@@ -62,6 +65,10 @@
 \newcommand{\vcirc}{\ensuremath{v_{\mbox{{\footnotesize c}}}}}
 \newcommand{\vmax}{\ensuremath{v_{\mbox{{\footnotesize max}}}}}
 \newcommand{\rmax}{\ensuremath{r_{\mbox{{\footnotesize max}}}}}
+\newcommand{\dsph}{dSph}
+\newcommand{\dsphs}{dSphs}
+
+\def\urltilda{\kern -.15em\lower .7ex\hbox{\~{}}\kern .04em}
 
 %Journals
 \newcommand{\aap}{Astron.~Astrophys.}
@@ -100,7 +107,7 @@ dispersions enhance the dark matter annihilation cross section even
 further. I show that the main effect of these substructure boosts is
 that the Sommerfeld enhancement is pushed to its saturation level in
 all the interesting regions of parameters space, and that very large
-boost factors ($10^6$ -- $10^9$) are obtained in a large class of
+boost factors ($10^5$ -- $10^9$) are obtained in a large class of
 models. The implications of these boost factors for the detection of
 dark matter annihilation from dwarf Speroidal galaxies in the Galactic
 halo are such that many of the models proposed to explain the positron
@@ -308,6 +315,23 @@ effects due to the existence of bound states) to be generic among
 different models of the Sommerfeld enhancement (see also the
 discussion in the appendix of Ref.~\cite{ArkaniHamed:2008qn}).
 
+\begin{figure}[t]
+\centering
+\includegraphics{2d-3.eps}
+\\
+\includegraphics{2d-4.eps}
+\caption{Sommerfeld enhancement as a function of the particle physics
+parameters for two different values of the relative velocity
+$\beta$. Because of the scaling properties of \eqnname\
+(\ref{eq:sommdiff2}) the behavior of the Sommerfeld enhancement as a
+function of $\log_{10}\beta$ can actually be read off along diagonals
+in the plane.}%\
+\label{fig:sommb34}%
+\end{figure}
+
+
+
+
 \Eqnname\ (\ref{eq:sommdiff2}) can also be numerically integrated
 efficiently, by integrating the solution $\psi(r) = e^{i\beta
 r/\alpha}$ inwards from a radius satisfying
@@ -335,29 +359,12 @@ in the second panel of Figure \ref{fig:sommb34} shows that the enhancement
 grows as $\beta^{-2}$ in these regions.
 
 
-\begin{figure}[t]
-\centering
-\includegraphics{2d-3.eps}
-\\
-\includegraphics{2d-4.eps}
-\caption{Sommerfeld enhancement as a function of the particle physics
-parameters for two different values of the relative velocity
-$\beta$. Because of the scaling properties of \eqnname\
-(\ref{eq:sommdiff2}) the behavior of the Sommerfeld enhancement as a
-function of $\log_{10}\beta$ can actually be read off along diagonals
-in the plane.}%\
-\label{fig:sommb34}%
-\end{figure}
-
-
-
 Of course, when considering the Sommerfeld enhancement of a halo of a
 certain velocity dispersion $\sigv$ we need to average the Sommerfeld
-enhancement over the velocity distribution of that halo. We will
-approximate the velocity distribution of the halo as a single Gaussian
-distribution with velocity dispersion $\sigv$, in which case we need
-to average the enhancement over a truncated Maxwell-Boltzmann
-distribution
+enhancement the distribution of relative velocities of that halo. We
+will approximate the one-particle velocity distribution of the halo as
+a single truncated Maxwell-Boltzmann distribution with velocity
+dispersion $\sigv$
 \begin{equation}\label{eq:maxboltz}
 f(v) \propto \left\{
 \begin{array}{rl}
@@ -368,18 +375,16 @@ v^2\, e^{-v^2/2\sigv^2}  & \qquad v \leq v_{\mathrm{esc}}\\
 in which we set the escape velocity to $v_{\mathrm{esc}} =
 \sqrt{2}\,\sigv$. Note that in the pure $1/v$ regime this averaging
 will tend to sustain the $1/v$ behavior up to a factor $\order(1)$,
-since then
+as we have that
 \begin{equation}
-\int_0^\infty \dd v \, v^2\, e^{-v^2/2\sigv^2}
-\somm\left/\int_0^\infty \dd v \, v^2\, e^{-v^2/2\sigv^2} \right.\propto
+\int_0^\infty \dd v \, v^2\, e^{-v^2/4\sigv^2}
+\somm\left/\int_0^\infty \dd v \, v^2\, e^{-v^2/4\sigv^2} \right.\propto
 \frac{1}{\sigv}\, ,
 \end{equation}
 since the truncation does not significantly influence the
 result. Similarly, in the resonance region the $1/v^2$ behavior is
 conserved by the averaging. When the enhancement has leveled off the
 averaging has no effect.
-
-
 
 \begin{figure*}[t]
 \includegraphics[clip=]{avg-3_65.eps}%%BoundingBox: 178 291 400 474
@@ -394,6 +399,18 @@ to the speed of light).}%
 \label{fig:sommavg}%
 \end{figure*}
 
+
+In Figure \ref{fig:sommavg} we show this averaged Sommerfeld
+enhancement for four different decades of velocity dispersion. The
+overall behavior of the Sommerfeld enhancement seen in Figure
+\ref{fig:sommb34} is indeed conserved well by the averaging: this has
+to do with the fact that the most probable relative velocity is given
+by the velocity dispersion for a Maxwell-Boltzmann relative velocity
+distribution. The Sommerfeld enhancement attains very large values for
+subhalos with very small velocity dispersions, moslty, but not
+exclusively, in the resonance regions. This means that the smallest
+subhalos that exists in \CDM\ will get large boosts to their \DM\
+annihilation from Sommerfeld enhancement.
 
 
 
@@ -901,10 +918,13 @@ velocity and mass of Canes Venatici I from Ref.~\cite{2007ApJ...670..313S}.
 
 \begin{figure*}[t]
 \includegraphics[clip=]{2dboost8_65.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487
+\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474 
+\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487 
 \includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 192 277 432 487
-\caption{}%
+\caption{The total (defined in Eq.~[\ref{eq:totalboost}])and reduced
+boost (defined in Eq.~[\ref{eq:redboost}]) for subhalos of two
+different mass scales. The dark matter profile of all the subhalos is
+assumed to be well-described by an \NFW\ profile.}%
 \label{fig:subboost}%
 \end{figure*}
 
@@ -914,13 +934,148 @@ velocity and mass of Canes Venatici I from Ref.~\cite{2007ApJ...670..313S}.
 \includegraphics[clip=]{2dboost8_65_1.4.eps}\\%%BoundingBox: 190 291 430 474
 %\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 178 291 400 474
 %\includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 190 291 430 474
-\caption{}%
+\caption{The total boost for a $M=10^8$ \Msun\ subhalo assuming a
+\GNFW\ dark matter density profile for the subhalos.}%
 \label{fig:subboostprofiles}%
 \end{figure*}
 
 
 
+We define the total boost for a given subhalo mass as
+\begin{equation}\label{eq:totalboost}
+\totalboost(M) = \somm(M) + \boost(M)\, ,
+\end{equation}
+in which $\somm(M)$ is the Sommerfeld enhancement for a halo of mass
+$M$ and $\boost(M)$ is the substructure boost for a halo of that mass,
+as defined in Eq.~(\ref{eq:boost}). This total boost for subhalos of
+mass $M$ = $10^8$ \Msun\ and $M$ = $10^7$ \Msun\ calculated by
+following the procedure outlined in the previous subsection is shown
+in Figure \ref{fig:subboost} (\emph{top panels}. It is immediately
+obvious that the total boost factors can get very large in certain
+regions of the parameter space spanned by \mv/\mdm and $\alpha$:
+boosts vary between $10^2$ to $10^9$. These masses correspond to the
+typical masses of the classical and newly-discovered dwarf Spheroidals
+(\dsphs) and as such their velocity dispersions are of the order
+$10^{-5}$. The pattern of resonance regions and non-resonance regions
+that appears for the pure Sommerfeld enhancement (as shown in Figure
+\ref{fig:sommavg}) is also apparent in these plots of the total
+boosts, however, it is noteworthy that the resonances seems to be more
+highly peaked than they were in the pure Sommerfeld enhancement case,
+and that the boost the lower half of the parameter space, \ie, for
+smaller values of \mv/\mdm, seems to be higher than one would expect
+from the pure Sommerfeld enhancement combined with a boost factor from
+pure density enhancements.
+
+This is confirmed by looking at the ``reduced boost'' defined as
+\begin{equation}\label{eq:redboost}
+\redboost(M) \equiv \frac{\totalboost(M)}{\somm(M)\left(1+\boost_0(M)\right)}\, ,
+\end{equation}
+in which $\boost_0(M)$ is the boost we would find if we turned off the
+Sommerfeld enhancement in the calculation of the total boost, \ie, the
+boost we would get if we set $\somm(m)$ equal to one in \eqnname\
+(\ref{eq:boost}). This $\boost_0$ corresponds to the boost factor that
+has been used before to estimate the total boost from density
+enhancements in \dsphs\ and it is generally of order \order(10). This
+reduced boost therefore divides out the contribution of the Sommerfeld
+enhancement of the top-level subhalo and the boost from the
+overdensities in lower-level halos, and it would be equal to one if
+there were no extra boost coming from the fact that the substructures
+are kinematically colder than the main subhalo. As we can see in
+Figure \ref{fig:subboost} (\emph{lower panels}), in various parts of
+the Yukawa coupling parameter space this reduced boost is equal to one
+such that there is no extra boosts due to the lower velocity
+dispersion in the substructures. This is mainly the case for large
+values of the parameter \mv/\mdm, since the Sommerfeld enhancement, in
+the 1/$v$ regime, levels off around $\somm \sim \mv/\mdm$, and since
+the top-level subhalo has a velocity dispersion of $\sim 10^{-5}$ this
+means that the Sommerfeld enhancement has mostly saturated at these
+large values of \mv/\mdm, even in regions of parameter space in which
+$\alpha$ is small. Indeed, in the 1/$v$ regime the Sommerfeld
+enhancement is $\sim \alpha/\beta$ $\approx$ $10^{-2}$ for $\alpha =
+10^{-3}$, such that the Sommerfeld enhancement has fully saturated
+over the whole $\alpha$ range for large values of \mv/\mdm\ ($\mv/\mdm
+\sim 10^{-2}$). 
+
+However, the Sommerfeld enhancement has not saturated in all regions
+of parameter space at this mass scale, and for smaller values of
+\mv/\mdm and especially in resonance regions, the reduced boost can
+reach high values, signalling a large extra boost due to the
+kinematically coldness of the substructure.  For small values of
+\mv/\mdm\ we see that we can get boosts that are an order of magnitude
+to two orders of magnitude larger than what we would expect from
+naively combining the Sommerfeld enhancement due to the velocity
+dispersion of the subhalo with the boost from density enhancements
+alone. This can be easily understood as being due to the fact that the
+Sommerfeld enhancement has not saturated yet at the mass scale of the
+top-level subhalo, such that it can be boosted up to it saturation
+point by the contribution from the kinematically colder substructure. 
+
+The largest values of the reduced boost are found in the resonance
+regions. In these regions the Sommerfeld enhancement both grows faster
+with decreasing relative velocity as well as saturates at a much
+larger value of the enhancement. Both of these effects conspire to
+give very large extra boosts. The resonance regions are clearly
+distinguishable in this plot of the reduced boost as 45$\deg$
+lines. Because the resonance regions are so narrow the apparent extra
+boosts in different resonances seems to vary greatly, but this is
+mostly due to the finite resolution of this figure. Extra boosts up to
+$\sim 10^5$ are obtained in these resonances, and these extra boosts
+increase along the resonances when decreasing $\alpha$, again due to
+the higher saturation level for smaller $\mv/\mdm$ values.
+
+The total boost factors obtained by assuming an \NFW\ dark matter
+density profile do not depend much on the inner slope of the density
+profile. This is mainly because the calculation of the boost only
+considers \emph{relative} luminosities, for which the difference in
+normalization of the $\lum \propto \rhos^2 \rs^3/\dist^2$ relation for
+different inner slopes is irrelevant, and because the function $f(c)$
+is only a weak function of the inner slope. This is confirmed by
+calculating the total boost for a $M = 10^8$ \Msun subhalo for a
+subhalo with a very shallow inner cusp as well as for a subhalo with a
+very steep inner slope. These are shown in Figure
+\ref{fig:subboostprofiles}, and, from comparing this with the total
+boost shown in Figure \ref{fig:subboost}, it is clear that the inner
+slope does not affect the total boost due to substructure. The main
+difference between the different dark matter density profiles is
+therefore given by the normalization of the $\lum \propto \rhos^2
+\rs^3/\dist^2$ relation, shown in Figure \ref{fig:normgammaNFW}.
+
+BOVY: describe different slopes $n$ here.
+
+BOVY: Also describe different thermal free streaming limits here?
+
 \section{Predicted annihilation signals for dwarf Spheroidals}
+
+dSphs good candidates for \DM\ annihilation:
+2000PhRvD..61b3514B,%Baltz/SUSY
+2002PhRvD..66b3509T,%Tyler,Draco
+2004PhRvD..70b3512B,%Baltz,general
+2004PhRvD..69l3501E,%Evans,general
+2004PhRvD..70d3503P,%Peirani, Draco, Sagit, M31, M87.
+2004PhRvL..93p1302H,%Hooper: Sagit: 511 keV
+2006PhRvD..73f3510B,%Bergstrom,Draco
+2006JCAP...03..003P,%Profumo, Draco, SUSY
+2007PhRvD..75b3513C,%Colafrancesco,Draco
+2007PhRvD..76l3509S,%Sanchez-Conde,Draco
+2007PhRvD..75h3526S,%StrigariI
+2008ApJ...678..614S,%StrigariII
+2008arXiv0809.2781G,%Geha
+2008arXiv0812.1494P,%Pieri, no Draco, Umi, Carina or Sextans with Fermi
+
+Limits:
+2008ApJ...678..594W,%Wood: Whipple: Draco and Umi
+2008ApJ...679..428A,%Albert et al, MAGIC: <10^-11
+2008APh....29...55A,%HESS: Sagg: 
+2008PhRvD..78h7101D,%Driscoll: Draco with STACEE: limit on the spectrum
+2009ApJ...691..175A,%Hess: Canis Major
+2008arXiv0810.3561M,%MAGIC: Willman 1 < 10^-12
+
+
+dSph modeling:
+2007PhRvD..75h3526S,%StrigariI
+2007ApJ...667L..53W,%Walker: vdisp profiles
+2008ApJ...672..904P,%Penarubia+CDM
+2009AJ....137.3109W,%Walker, EM contamination
 
 \begingroup
 %\squeezetable
@@ -968,6 +1123,9 @@ References: (1) \citet{2008ApJ...672..904P}, (2) \citet{2008ApJ...678..614S}, (3
 
 
 \section{The annihilation signal from subhalos in \VL\ 2}
+
+\VL 2 data \cite{2008Natur.454..735D} \footnote{Available at
+\texttt{http://www.ucolick.org/\urltilda$\!$diemand/vl/data.html}}.
 
 
 \begin{figure}[t]
