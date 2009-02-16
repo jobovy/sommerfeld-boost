@@ -65,8 +65,9 @@
 \newcommand{\vcirc}{\ensuremath{v_{\mbox{{\footnotesize c}}}}}
 \newcommand{\vmax}{\ensuremath{v_{\mbox{{\footnotesize max}}}}}
 \newcommand{\rmax}{\ensuremath{r_{\mbox{{\footnotesize max}}}}}
-\newcommand{\dsph}{dSph}
-\newcommand{\dsphs}{dSphs}
+\newcommand{\dSph}{dSph}
+\newcommand{\dSphs}{dSphs}
+\newcommand{\SDSS}{SDSS}
 
 \def\urltilda{\kern -.15em\lower .7ex\hbox{\~{}}\kern .04em}
 
@@ -488,7 +489,7 @@ between different models leading to changes of a factor $\order(10)$.
 
 
 
-\subsection{The Dark Matter profile}
+\subsection{The Dark Matter profile}\label{sec:DMprofile}
 
 
 The density profile of dark matter halos has been discussed
@@ -819,6 +820,22 @@ here which places 10\% of the mass of the subhalo in the form of
 ``resolved'' substructure, where we adopt the definition that resolved
 substructure is in halos of mass $\gtrsim 10^{-5} M$.
 
+\begin{figure*}[t]
+\includegraphics[clip=]{2dboost8_65.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474 
+\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487 
+\includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 192 277 432 487
+\caption{The total (defined in Eq.~[\ref{eq:totalboost}])and reduced
+boost (defined in Eq.~[\ref{eq:redboost}]) for subhalos of two
+different mass scales. The dark matter profile of all the subhalos is
+assumed to be well-described by an \NFW\ profile.}%
+\label{fig:subboost}%
+\end{figure*}
+
+
+
+
+
 In the previous section we calculated $\lumsmoothc$ for the different
 \DM\ density profiles and found in all cases that
 \begin{equation}
@@ -849,9 +866,10 @@ is a small effect, of order 10\%, and it does not play a large role in
 the results we obtain below. This concentration-halo mass
 concentration has not just been establised in numerical simulations:
 statistical weak lensing analysis of luminous red galaxies and
-clusters from the Sloan Digital Sky Survey has shown that the halo
-profiles of these objects are consistent with the \NFW\ profile and
-mass-concentration relation given above \cite{2008JCAP...08..006M}.
+clusters from the Sloan Digital Sky Survey (\SDSS) has shown that the
+halo profiles of these objects are consistent with the \NFW\ profile
+and mass-concentration relation given above
+\cite{2008JCAP...08..006M}.
 
 The only remaining quantity in \eqnname\ (\ref{eq:boost}) that we
 haven't related to the mass of the subhalo yet, is the Sommerfeld
@@ -912,28 +930,14 @@ relationship at the mass scale of the dwarf spheroidals by using the
 velocity and mass of Canes Venatici I from Ref.~\cite{2007ApJ...670..313S}.
 
 
-
 \subsection{The total and the ``reduced'' boost}
-
-
-\begin{figure*}[t]
-\includegraphics[clip=]{2dboost8_65.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474 
-\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487 
-\includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 192 277 432 487
-\caption{The total (defined in Eq.~[\ref{eq:totalboost}])and reduced
-boost (defined in Eq.~[\ref{eq:redboost}]) for subhalos of two
-different mass scales. The dark matter profile of all the subhalos is
-assumed to be well-described by an \NFW\ profile.}%
-\label{fig:subboost}%
-\end{figure*}
 
 
 \begin{figure*}[t]
 \includegraphics[clip=]{2dboost8_65_0.8.eps}%%BoundingBox: 178 291 400 474
 \includegraphics[clip=]{2dboost8_65_1.4.eps}\\%%BoundingBox: 190 291 430 474
-%\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 178 291 400 474
-%\includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 190 291 430 474
+\includegraphics[clip=]{2dboost8_65_-0.7.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_-1.0.eps}%%BoundingBox: 190 291 430 474
 \caption{The total boost for a $M=10^8$ \Msun\ subhalo assuming a
 \GNFW\ dark matter density profile for the subhalos.}%
 \label{fig:subboostprofiles}%
@@ -955,7 +959,7 @@ obvious that the total boost factors can get very large in certain
 regions of the parameter space spanned by \mv/\mdm and $\alpha$:
 boosts vary between $10^2$ to $10^9$. These masses correspond to the
 typical masses of the classical and newly-discovered dwarf Spheroidals
-(\dsphs) and as such their velocity dispersions are of the order
+(\dSphs) and as such their velocity dispersions are of the order
 $10^{-5}$. The pattern of resonance regions and non-resonance regions
 that appears for the pure Sommerfeld enhancement (as shown in Figure
 \ref{fig:sommavg}) is also apparent in these plots of the total
@@ -975,7 +979,7 @@ Sommerfeld enhancement in the calculation of the total boost, \ie, the
 boost we would get if we set $\somm(m)$ equal to one in \eqnname\
 (\ref{eq:boost}). This $\boost_0$ corresponds to the boost factor that
 has been used before to estimate the total boost from density
-enhancements in \dsphs\ and it is generally of order \order(10). This
+enhancements in \dSphs\ and it is generally of order \order(10). This
 reduced boost therefore divides out the contribution of the Sommerfeld
 enhancement of the top-level subhalo and the boost from the
 overdensities in lower-level halos, and it would be equal to one if
@@ -1046,36 +1050,105 @@ BOVY: Also describe different thermal free streaming limits here?
 
 \section{Predicted annihilation signals for dwarf Spheroidals}
 
-dSphs good candidates for \DM\ annihilation:
-2000PhRvD..61b3514B,%Baltz/SUSY
-2002PhRvD..66b3509T,%Tyler,Draco
-2004PhRvD..70b3512B,%Baltz,general
-2004PhRvD..69l3501E,%Evans,general
-2004PhRvD..70d3503P,%Peirani, Draco, Sagit, M31, M87.
-2004PhRvL..93p1302H,%Hooper: Sagit: 511 keV
-2006PhRvD..73f3510B,%Bergstrom,Draco
-2006JCAP...03..003P,%Profumo, Draco, SUSY
-2007PhRvD..75b3513C,%Colafrancesco,Draco
-2007PhRvD..76l3509S,%Sanchez-Conde,Draco
-2007PhRvD..75h3526S,%StrigariI
-2008ApJ...678..614S,%StrigariII
-2008arXiv0809.2781G,%Geha
-2008arXiv0812.1494P,%Pieri, no Draco, Umi, Carina or Sextans with Fermi
+Besides detection of \DM\ annihilation from the Galactic Center or the
+diffuse component from the Galactic halo, there idea exists that the
+best candidates for \DM\ annihilation detection might be the dwarf
+Spheroidal satellite galaxies (\dSphs) of our Galaxy, since the dwarf
+galaxies are believed to be the most dark matter dominated structures
+in the Universe, and the \DM\ annihilation signal coming from them
+would be much easier to distinguish from background sources than, \eg,
+would be the case for \DM\ annihilation photons coming from the
+Galactic Center. That \dSphs\ make good candidates for \DM\
+annihilation detection has been much discussed before, especially for
+the ``classical'', or pre-\SDSS, \dSphs\
+\cite{2000PhRvD..61b3514B,2002PhRvD..66b3509T,2004PhRvD..70b3512B,2004PhRvD..69l3501E,2004PhRvD..70d3503P,2004PhRvL..93p1302H}. Especially
+the annihilation signal coming from Draco has been the subject of much
+research in recent years because of its relative proximity to the
+Earth
+\cite{2002PhRvD..66b3509T,2004PhRvD..70d3503P,2006PhRvD..73f3510B,2006JCAP...03..003P,2007PhRvD..75b3513C,2007PhRvD..76l3509S,2007PhRvD..75h3526S,2008arXiv0812.1494P}. The
+prospects for \DM\ annihilation detection from \dSphs\ has in general
+been found to be rather poor, with detection with \Fermi\ being
+unlikely \cite{2008arXiv0812.1494P}. Some of the \dSphs\ have already
+been the subject of observational searches for \DM\ annihilation and
+some limits on the \DM\ annihilation signal have already been set
+\cite{2008ApJ...678..594W,2008ApJ...679..428A,2008APh....29...55A,2008PhRvD..78h7101D,2009ApJ...691..175A,2008arXiv0810.3561M}.
 
-Limits:
-2008ApJ...678..594W,%Wood: Whipple: Draco and Umi
-2008ApJ...679..428A,%Albert et al, MAGIC: <10^-11
-2008APh....29...55A,%HESS: Sagg: 
-2008PhRvD..78h7101D,%Driscoll: Draco with STACEE: limit on the spectrum
-2009ApJ...691..175A,%Hess: Canis Major
-2008arXiv0810.3561M,%MAGIC: Willman 1 < 10^-12
 
+The \dSphs\ discovered by \SDSS\ have also been suggested to make good
+candidates for \DM\ annihilation detection, because of their very
+large mass-to-light ratios ($\sim\!10^3$)
+\cite{2008ApJ...678..614S,2008arXiv0809.2781G}. In the context of the
+Sommerfeld enhancement, these recently discovered \dSphs\ are
+especially interesting, since they also have the smallest velocity
+dispersion of all the satellites of our Galaxy. Predicting the \DM\
+annihilation signal from these low-surface brightness galaxies is
+complicated by the dearth of kinematical tracers of the \DM\
+distribution and their contamination with background stars
+\cite{2009AJ....137.3109W}. Nevertheless, detailed studies have
+constrained the \DM\ density and velocity dispersion profiles of some
+of these \dSphs\
+\cite{2007PhRvD..75h3526S,2007ApJ...667L..53W,2008ApJ...672..904P}. We
+will use some of the results on the \DM\ density and velocity profiles
+found in these studies to show the extra effect of the Sommerfeld
+enhancement on the predicted \DM\ annihilation signal from some of
+these \dSphs.
 
-dSph modeling:
-2007PhRvD..75h3526S,%StrigariI
-2007ApJ...667L..53W,%Walker: vdisp profiles
-2008ApJ...672..904P,%Penarubia+CDM
-2009AJ....137.3109W,%Walker, EM contamination
+We consider the \dSphs\ given in Table \ref{tab:dsphs} here. Eight of
+the \dSphs\ are classical dwarf galaxies and we use the \DM\ density
+profiles fitted to them in Ref.~\cite{2008ApJ...672..904P}. In this
+the \DM\ density profiles of the \dSphs\ were not completely
+determined by the available data ---a degeneracy between the
+parameters of the \NFW\ profile used to describe the \DM\ density and
+the King profile used to fit the luminous component of the galaxies
+was found--- and the concentration-mass relation from \CDM\
+\cite{2001MNRAS.321..559B,2001ApJ...554..114E} was used to break the
+degeneracy. Since these authors expressed their results in the form of
+the \rmax\ and \vmax\ parameters of the \DM\ density profiles, we use
+the procedure outlined in Section \ref{sec:DMprofile} to convert these
+to \rhos\ and \rs\ values. As these \vmax\ and \rmax\ parameters were
+fit to an \NFW\ \DM\ profile, we will only consider an \NFW\ profile
+for the \dSphs\ here, but the general conclusions about the importance
+of the exact profile shape also hold in these particular cases. The
+velocity dispersions of these \dSphs\ are taken from
+Ref.~\cite{1998ARA&A..36..435M} and we again model these subhalos as
+having a constant velocity dispersion.
+
+We also consider some of the newly discovered \dSphs. In particular we
+discuss the prospects for \DM\ annihilation detection from Coma
+Berenices and Ursa Major II, and we use the best fit values to the
+available data from Ref.~\cite{2008ApJ...678..614S}. Since these
+authors directly quote \rhos\ and \rs\ values we do not include \rmax\
+and \vmax\ values for these \dSphs. We use the velocity dispersions
+determined for these galaxies in Ref.~\cite{2007ApJ...670..313S}.
+
+%dSphs good candidates for \DM\ annihilation:
+%2000PhRvD..61b3514B,%Baltz/SUSY 2002PhRvD..66b3509T,%Tyler,Draco
+%2004PhRvD..70b3512B,%Baltz,general 
+%2004PhRvD..69l3501E,%Evans,general
+%2004PhRvD..70d3503P,%Peirani, Draco, Sagit, M31, M87.
+%2004PhRvL..93p1302H,%Hooper: Sagit: 511 keV
+%2006PhRvD..73f3510B,%Bergstrom,Draco 
+%2006JCAP...03..003P,%Profumo,Draco, SUSY 
+%2007PhRvD..75b3513C,%Colafrancesco,Draco
+%2007PhRvD..76l3509S,%Sanchez-Conde,Draco
+%2007PhRvD..75h3526S,%StrigariI 
+%2008ApJ...678..614S,%StrigariII
+%2008arXiv0809.2781G,%Geha 
+%2008arXiv0812.1494P,%Pieri, no Draco, Umi,Carina or Sextans with Fermi
+
+%Limits:
+%2008ApJ...678..594W,%Wood: Whipple: Draco and Umi
+%2008ApJ...679..428A,%Albert et al, MAGIC: <10^-11
+%2008APh....29...55A,%HESS: Sagg: 
+%2008PhRvD..78h7101D,%Driscoll: Draco with STACEE: limit on the spectrum
+%2009ApJ...691..175A,%Hess: Canis Major
+%2008arXiv0810.3561M,%MAGIC: Willman 1 < 10^-12
+
+%dSph modeling:
+%2007PhRvD..75h3526S,%StrigariI
+%2007ApJ...667L..53W,%Walker: vdisp profiles
+%2008ApJ...672..904P,%Penarubia+CDM
+%2009AJ....137.3109W,%Walker, EM contamination
 
 \begingroup
 %\squeezetable
