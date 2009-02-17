@@ -69,7 +69,11 @@
 \newcommand{\dSphs}{dSphs}
 \newcommand{\SDSS}{SDSS}
 
+%Some voodoo
 \def\urltilda{\kern -.15em\lower .7ex\hbox{\~{}}\kern .04em}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\dbltopfraction}{0.95}
 
 %Journals
 \newcommand{\aap}{Astron.~Astrophys.}
@@ -454,7 +458,7 @@ derive actual numbers for the photon flux from \DM\ annihilation, we
 briefly describe the other quantities appearing in \eqnname\
 (\ref{eq:flux}) here.
 
-\subsection{Some details of the particle physics that do not particularly concern us here}
+\subsection{Some details of the particle physics that do not particularly concern us here}\label{sec:partphys}
 
 
 For the annihilation cross section without taking account of any
@@ -595,7 +599,7 @@ slope of the inner cusp and is given by
 \end{equation}
 The normalization for the \NFW\ profile is $7\pi/6$ and it depends
 strongly on the value of the logarithmic slope of the inner density
-profile, as can be seen in Figure \ref{fig:normgammaNFW}. The lower
+profile, as can be seen in Figure \ref{fig:normgammaNFW}. The bottom
 panel of Fig.~\ref{fig:normgammaNFW} shows the fraction of the \DM\
 annihilation flux coming from region within one scale-radius of the
 halo. For reasonable values of the inner slope this fraction is in the
@@ -761,7 +765,7 @@ integral appearing in \eqnname\ (\ref{eq:boost}). The integration over
 ever smaller substructures is cut-off at the size of the smallest
 subhalos. The mass scale at which this cut-off occurs is the thermal
 free-streaming scale, a \DM\ model-dependent quantity, which in many
-\DM\ models lies in the range 10$^{-6}$ -- 10$^{-12}$ \Msol
+\DM\ models lies in the range 10$^{-6}$ -- 10$^{-12}$ \Msol\
 \cite{1999PhRvD..59d3517S,2001PhRvD..64h3507H,2004MNRAS.353L..23G,2005PhRvD..71j3520L,2006PhRvL..97c1301P}. The
 upper limit to this integral is some fraction $q$ of the halo mass
 $M$, since the abundance of substructure does not continue up to this
@@ -936,10 +940,9 @@ velocity and mass of Canes Venatici I from Ref.~\cite{2007ApJ...670..313S}.
 \begin{figure*}[t]
 \includegraphics[clip=]{2dboost8_65_0.8.eps}%%BoundingBox: 178 291 400 474
 \includegraphics[clip=]{2dboost8_65_1.4.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{2dboost8_65_-0.7.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost8_65_-1.0.eps}%%BoundingBox: 190 291 430 474
-\caption{The total boost for a $M=10^8$ \Msun\ subhalo assuming a
-\GNFW\ dark matter density profile for the subhalos.}%
+\includegraphics[clip=]{2dboost8_65_0.1.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_0.2.eps}%%BoundingBox: 190 291 430 474
+\caption{The total boost for a $M=10^8$ \Msun\ subhalo for different shapes of the \DM\ density profile: a generalized \NFW\ profile described by an inner slope $\gamma$ (\emph{top panels}); an Einasto profile described by a shape parameter \alphaEinasto\ (\emph{bottom panels}).}%
 \label{fig:subboostprofiles}%
 \end{figure*}
 
@@ -985,7 +988,7 @@ enhancement of the top-level subhalo and the boost from the
 overdensities in lower-level halos, and it would be equal to one if
 there were no extra boost coming from the fact that the substructures
 are kinematically colder than the main subhalo. As we can see in
-Figure \ref{fig:subboost} (\emph{lower panels}), in various parts of
+Figure \ref{fig:subboost} (\emph{bottom panels}), in various parts of
 the Yukawa coupling parameter space this reduced boost is equal to one
 such that there is no extra boosts due to the lower velocity
 dispersion in the substructures. This is mainly the case for large
@@ -999,6 +1002,19 @@ enhancement is $\sim \alpha/\beta$ $\approx$ $10^{-2}$ for $\alpha =
 10^{-3}$, such that the Sommerfeld enhancement has fully saturated
 over the whole $\alpha$ range for large values of \mv/\mdm\ ($\mv/\mdm
 \sim 10^{-2}$). 
+
+\begin{figure*}[t]
+\includegraphics[clip=]{2dboost8_65_-0.7.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_-1.0.eps}\\%%BoundingBox: 190 291 430 474
+%\includegraphics[clip=]{2dboost8_65_-3.eps}%%BoundingBox: 178 291 400 474
+%\includegraphics[clip=]{2dboost8_65_-12.eps}%%BoundingBox: 190 291 430 474
+\caption{The total boost for a $M=10^8$ \Msun\ for different slopes
+$n$ for the subhalo mass function (\emph{top panels}) and for
+different values of the dark matter thermal free streaming limit
+$m_0$ (\emph{bottom panels}).}%
+\label{fig:subboostslope}%
+\end{figure*}
+
 
 However, the Sommerfeld enhancement has not saturated in all regions
 of parameter space at this mass scale, and for smaller values of
@@ -1032,23 +1048,120 @@ density profile do not depend much on the inner slope of the density
 profile. This is mainly because the calculation of the boost only
 considers \emph{relative} luminosities, for which the difference in
 normalization of the $\lum \propto \rhos^2 \rs^3/\dist^2$ relation for
-different inner slopes is irrelevant, and because the function $f(c)$
-is only a weak function of the inner slope. This is confirmed by
-calculating the total boost for a $M = 10^8$ \Msun subhalo for a
-subhalo with a very shallow inner cusp as well as for a subhalo with a
-very steep inner slope. These are shown in Figure
-\ref{fig:subboostprofiles}, and, from comparing this with the total
-boost shown in Figure \ref{fig:subboost}, it is clear that the inner
-slope does not affect the total boost due to substructure. The main
-difference between the different dark matter density profiles is
-therefore given by the normalization of the $\lum \propto \rhos^2
-\rs^3/\dist^2$ relation, shown in Figure \ref{fig:normgammaNFW}.
+different inner slopes is irrelevant, and because the mass of the
+subhalo is only weakly affected by the value of the inner slope ---the
+function $f(c)$ is only a weak function of the inner slope. This is
+confirmed by calculating the total boost for a $M = 10^8$ \Msun\
+subhalo for a subhalo with a very shallow inner cusp as well as for a
+subhalo with a very steep inner slope. These are shown in Figure
+\ref{fig:subboostprofiles} (\emph{top panels}), and, from comparing
+this with the total boost shown in Figure \ref{fig:subboost}, it is
+clear that the inner slope does not affect the total boost due to
+substructure. The main difference between the different dark matter
+density profiles is therefore given by the normalization of the $\lum
+\propto \rhos^2 \rs^3/\dist^2$ relation, shown in Figure
+\ref{fig:normgammaNFW}.
 
-BOVY: describe different slopes $n$ here.
+If the \DM\ density profiles of halos is better described by an
+Einasto profile then the substructure boost is affected more strongly
+by the shape parameter \alphaEinasto\, which basically describes how
+cored the \DM\ density profile is. Changing \alphaEinasto\ has a
+greater impact on changing the overall \DM\ density profileand
+therefore also plays a larger role in the relation between the
+characteristic density, the concentration, and the mass of the
+subhalo. The total boosts for a $M$ = $10^8$ \Msun\ subhalo is shown
+in Figure \ref{fig:subboostprofiles} (\emph{bottom panels}) for two
+different values of the shape parameter \alphaEinasto\, which span the
+range found in numerical simulations (for values of \alphaEinasto\
+greater than 0.2 the behavior basically saturates at that of
+\alphaEinasto\ = 0.2). For \alphaEinasto\ = 0.1 the total boost is
+about the same as for the \GNFW\ profile shape, which is
+understandable given that the Einasto profile is more cuspy for
+smaller values of \alphaEinasto. The same dependence on the parameter
+\mv/\mdm\ as is seen for the \GNFW\ profile is displayed for the
+Einasto profile. In the case that \alphaEinasto\ is larger the
+substructure boost reaches slightly larger values than for the \GNFW\
+density profile. Thus, as was the case for the \GNFW\ profile, the
+impact of the different normalization of the
+$\rhominustwo^2\rminustwo^3/\dist^2$ for different values of
+\alphaEinasto\ will play a leading role in the difference between the
+different profile shapes. 
+
+
+\begingroup
+%\squeezetable
+\begin{table*}
+\begin{ruledtabular}
+\begin{tabular}{lrr@{.}lr@{}lr@{}lr@{.}lr@{.}lr@{.}l@{ $\times$ }lc}
+dSph & \dist\ & \multicolumn{2}{c}{\sigv}\ & \multicolumn{2}{c}{\rmax} & \multicolumn{2}{c}{\vmax} & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{3}{c}{$M(<\rs)$} & References\\
+& [kpc] & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[$\Msun$ kpc$^{-3}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{3}{c}{[$\Msun$]}&\\[4pt]
+\hline
+Carina.......................................................................... & 101 & 6&8 & 3&\phantom{f}      & 16&$\!\!\!$      & 1&1 $\times$ $10^7$ & 1&4 & 7&4&$10^8$ & 1,3\\
+Coma Berenices...........................................................      & 44  & 4&6 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&10$^7$ & 2,4\\
+Draco........................................................................... & 80  & 5&5 & 8&      & 40&      & 1&0 $\times$ $10^7$ & 3&7 & 1&2&$10^9$ & 1,3\\
+Fornax.........................................................................  & 138 & 11&1& 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
+Leo I............................................................................  & 250 & 8&8 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
+Leo II...........................................................................  & 205 & 6&7 & 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
+Sculptor.......................................................................  & 79  & 8&5 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
+Sextans........................................................................  & 86  & 5&8 & 2&      & 10&      & 1&0 $\times$ $10^7$ & 0&9 & 1&9&$10^7$ & 1,3\\
+Ursa Major II..............................................................   & 32  & 6&7 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&$10^7$ & 2,4\\
+Ursa Minor..................................................................    & 66  & 15&0& 6&      & 30&      & 1&0 $\times$ $10^8$ & 2&8 & 5&2&$10^8$ & 1,3\\
+%Willman I............. & 38 &&& 5&5 $\times$ $10^8$ & 0&2 & 1&10$^{15}$\\
+%Segue I.................. & 23 &&&&
+\end{tabular}
+\end{ruledtabular}
+\caption{Properties of the dwarf Spheroidals used in this study.\\
+References: (1) \citet{2008ApJ...672..904P}, (2) \citet{2008ApJ...678..614S}, (3) \citet{1998ARA&A..36..435M}, (4) \citet{2007ApJ...670..313S}.}\label{tab:dsphs}
+\end{table*}
+\endgroup
+
+
+
+
+\begin{figure*}[t]
+\includegraphics[clip=]{flux_carina_65.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{flux_draco_65.eps}\\%%BoundingBox: 190 291 430 474
+\includegraphics[clip=]{flux_fornax_65.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{flux_leoI_65.eps}\\%%BoundingBox: 190 291 430 474
+\includegraphics[clip=]{flux_leoII_65.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{flux_ursaminor_65.eps}%%BoundingBox: 190 291 430 474
+\caption{}%
+\label{fig:dsph}%
+\end{figure*}
+
+
+In Figure \ref{fig:subboostslope} the effect of varying two more of
+the many parameters introduced in the previous section is shown. The
+slope of the subhalo mass function $n$ was set to -0.9 before,
+corresponding to the results from the latest high-resolution numerical
+simulations. In Figure \ref{fig:subboostslope} (\emph{top panels}) we
+show the effect of both a shallower as well as a steeper subhalo mass
+function. The value of $n = -0.7$ corresponds to the shallow slope
+found in Ref.~\cite{2002PhRvD..66f3502H}. We see that the effect of
+such a shallow slope is to seriously reduce the substructure boost,
+which is simply due to the fact that for a shallower slope less
+substructure is found in smaller and more concentrated clumps. A
+steeper slope such as $n = -1$, as was found in the recent \VL\
+simulation \cite{2008ApJ...686..262K} leads to a substructure boost
+which is about an order of magnitude larger than for the fiducial
+$n=-0.9$ value.
+
+The effect of the thermal free-streaming scale of \DM\ on the
+substructure boost is shown in Figure \ref{fig:subboostslope}
+(\emph{bottom panels}). This effect is relatively large since the
+free-streaming scale sets the scale of the smallest and most
+concentrated \DM\ halos and raising or lowering this scale therefore
+changes an important part of the contribution to the substructure
+boost. For very large values of the free-streaming scale such as $m_0
+= 10^{-3}$ \Msun, the substructure boost becomes relatively small
+BOVY: BE MORE PRECISE HERE. When the free-streaming scale becomes very
+small, much of the substructure is in very small, cold clumps, such
+that the total boost becomes very large. BOVY: BE MORE PRECISE HERE.
 
 BOVY: Also describe different thermal free streaming limits here?
 
 \section{Predicted annihilation signals for dwarf Spheroidals}
+
 
 Besides detection of \DM\ annihilation from the Galactic Center or the
 diffuse component from the Galactic halo, there idea exists that the
@@ -1121,6 +1234,54 @@ authors directly quote \rhos\ and \rs\ values we do not include \rmax\
 and \vmax\ values for these \dSphs. We use the velocity dispersions
 determined for these galaxies in Ref.~\cite{2007ApJ...670..313S}.
 
+In order to calculate the substructure boost to the \DM\ annihilation
+cross section we need the mass of the \dSphs. Many definitions of the
+mass of the galaxy could be used here, among the more appropriate ones
+is the mass contained inside the tidal radius, \ie, the radius inside
+of which material in the \dSph\ is safe from being tidally stripped by
+the Galaxy. However, since we are considering the \DM\ annihilation
+flux coming from within the radius \rminustwo\ we will use the mass
+contained within this radius to calculate the substructure boost. This
+is more appropriate since (1) it can be calculated straightforwardly
+from the \DM\ density profile of the \dSph\ and (2) the mass contained
+within \rminustwo\ is really the more relevant mass to calculate the
+substructure boost, since we are only interested in contributions to
+the \DM\ annihilation flux coming from within the radius \rminustwo.
+
+Because of the similarities between some of the \DM\ density profiles
+of the \dSphs\ in Table \ref{tab:dsphs} we do not show the predicted
+annihilation fluxes for all of the \dSphs\ in Figure \ref{fig:dsph},
+instead focusing on a representative sample of them. Inspection of
+Table \ref{tab:dsphs} shows that annihilation flux of the \dSphs\ not
+shown here will be similar to that of the ones shown in Figure
+\ref{fig:dsph}.
+
+It is clear from Figure \ref{fig:dsph} that the \DM\ annihilation flux
+predicted to be coming from the \dSphs\ is very large in a large class
+of models. For example, the flux predicted for Draco exceeds the upper
+limit set on the \DM\ annihilation flux set by
+\cite{2008ApJ...679..428A} for all models parametrized by \mv/\mdm\
+and $\alpha$ by many orders of magnitude. We have to stress here that
+our predicted fluxes are all for the particle physics specific
+parameters given in Section \ref{sec:partphys}, \ie, \sigmaannv\ = $3
+\times 10^{-26}$ cm$^3$ s$^{-1}$, \mdm\ = 700 GeV and a particular
+form for the \DM\ annihilation spectrum. To predict the gamma-ray flux
+for a particular model with different values of these particle physics
+parameters one is required to calculate the particle physics parameter
+specific factor to the \DM\ annihilation flux and appropriately
+rescale the values given here. Nevertheless, any model that predicts
+very large annihilation cross sections to account for the PAMELA/ATIC
+excesses, and we are thinking here specifically about models that try
+to fit the PAMELA data with very large boost factors with respect to
+the fiducial annihilation cross section, give rise to these very large
+predicted gamma-ray fluxes coming from the \dSphs. Therefore, unless
+the boosts from substructure are somehow suppressed or the assumptions
+about the subhalo mass function, concentration-mass relation for
+subhalos, and/or any of the other asumptions about subhalos beyond the
+resolution limits of the state-of-the-art numerical simulations are
+violated for physical subhalos, these models are in tension with the
+experimental limits on the gamma-ray flux from \dSphs.
+
 %dSphs good candidates for \DM\ annihilation:
 %2000PhRvD..61b3514B,%Baltz/SUSY 2002PhRvD..66b3509T,%Tyler,Draco
 %2004PhRvD..70b3512B,%Baltz,general 
@@ -1150,49 +1311,6 @@ determined for these galaxies in Ref.~\cite{2007ApJ...670..313S}.
 %2008ApJ...672..904P,%Penarubia+CDM
 %2009AJ....137.3109W,%Walker, EM contamination
 
-\begingroup
-%\squeezetable
-\begin{table*}[t]
-\begin{ruledtabular}
-\begin{tabular}{lrr@{.}lr@{}lr@{}lr@{.}lr@{.}lr@{.}l@{ $\times$ }lc}
-dSph & \dist\ & \multicolumn{2}{c}{\sigv}\ & \multicolumn{2}{c}{\rmax} & \multicolumn{2}{c}{\vmax} & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{3}{c}{$M(<\rs)$} & References\\
-& [kpc] & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[$\Msun$ kpc$^{-3}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{3}{c}{[$\Msun$]}&\\[4pt]
-\hline
-Carina.......................................................................... & 101 & 6&8 & 3&\phantom{f}      & 16&$\!\!\!$      & 1&1 $\times$ $10^7$ & 1&4 & 7&4&$10^8$ & 1,3\\
-Coma Berenices...........................................................      & 44  & 4&6 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&10$^7$ & 2,4\\
-Draco........................................................................... & 80  & 5&5 & 8&      & 40&      & 1&0 $\times$ $10^7$ & 3&7 & 1&2&$10^9$ & 1,3\\
-Fornax.........................................................................  & 138 & 11&1& 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
-Leo I............................................................................  & 250 & 8&8 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
-Leo II...........................................................................  & 205 & 6&7 & 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
-Sculptor.......................................................................  & 79  & 8&5 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
-Sextans........................................................................  & 86  & 5&8 & 2&      & 10&      & 1&0 $\times$ $10^7$ & 0&9 & 1&9&$10^7$ & 1,3\\
-Ursa Major II..............................................................   & 32  & 6&7 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&$10^7$ & 2,4\\
-Ursa Minor..................................................................    & 66  & 15&0& 6&      & 30&      & 1&0 $\times$ $10^8$ & 2&8 & 5&2&$10^8$ & 1,3\\
-%Willman I............. & 38 &&& 5&5 $\times$ $10^8$ & 0&2 & 1&10$^{15}$\\
-%Segue I.................. & 23 &&&&
-\end{tabular}
-\end{ruledtabular}
-\caption{Properties of the dwarf Spheroidals used in this study.\\
-References: (1) \citet{2008ApJ...672..904P}, (2) \citet{2008ApJ...678..614S}, (3) \citet{1998ARA&A..36..435M}, (4) \citet{2007ApJ...670..313S}.}\label{tab:dsphs}
-\end{table*}
-\endgroup
-
-
-
-
-\begin{figure*}[t]
-\includegraphics[clip=]{flux_carina_65.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{flux_draco_65.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{flux_fornax_65.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{flux_leoI_65.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{flux_leoII_65.eps}\\%%BoundingBox: 178 291 400 474
-%\includegraphics[clip=]{flux_sculptor_65.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{flux_sextans_65.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{flux_ursaminor_65.eps}%%BoundingBox: 190 291 430 474
-\caption{}%
-\label{fig:dsph}%
-\end{figure*}
-
 
 
 \section{The annihilation signal from subhalos in \VL\ 2}
@@ -1201,59 +1319,73 @@ References: (1) \citet{2008ApJ...672..904P}, (2) \citet{2008ApJ...678..614S}, (3
 \texttt{http://www.ucolick.org/\urltilda$\!$diemand/vl/data.html}}.
 
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-2_-3_10_1.eps}
-\caption{Distances and masses in \VL\ 2.}%\
+\caption{The distances to and masses of subhalos within the tidal
+radius of the main halo in \VL\ 2. The distances are for three random
+observers at a distance of 8.5 kpc from the galactic center of the
+main halo.}%\
 \label{fig:VL23_1}%
 \end{figure}
 
 
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-2_-3_10_2.eps}
-\caption{Photon count for individual subhalos and total boosts for \ldots.}%\
+\caption{Left: Histogram of the predicted gamma-ray flux coming from
+indivual subhalos contained within the tidal radius of the main halo
+in \VL\ 2 for three random observer placed at a distance of 8.5 kpc
+from the center of the main \VL\ halo for \mv/\mdm\ = 10$^{-2}$ and
+$\alpha = 10^{-3}$. Right: Histogram of the total boosts of the
+subhalos for the same values of \mv/\mdm\ and $\alpha$.}%\
 \label{fig:VL23_2}%
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-2_-3_10_3.eps}
-\caption{Distribution of total photon counts for 1,000 random observers at 8.5 kpc.}%\
+\caption{Total gamma-ray flux from subhalos in \VL\ 2 for 1,000 random
+observers at 8.5 kpc from the center of the main \VL\ halo for
+\mv/\mdm\ = 10$^{-2}$ and $\alpha = 10^{-3}$.}%\
 \label{fig:VL23_3}%
 \end{figure}
 
 
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-5_-1_10_2.eps}
-\caption{}%\
+\caption{Same as Figure \ref{fig:VL23_2} but for \mv/\mdm\ = 10$^{-5}$
+and $\alpha = 10^{-1}$.}%
 \label{fig:VL51_1}%
 \end{figure}
 
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-5_-1_10_3.eps}
-\caption{}%\
+\caption{Same as Figure \ref{fig:VL23_3} but for \mv/\mdm\ = 10$^{-5}$
+and $\alpha = 10^{-1}$.}%
 \label{fig:VL51_2}%
 \end{figure}
 
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-3.84375_-2.625_10_2.eps}
-\caption{}%\
+\caption{Same as Figure \ref{fig:VL23_2} but for a resonance:
+\mv/\mdm\ = 10$^{-3.84375}$ and $\alpha = 10^{-2.625}$.}%
 \label{fig:VLresonance1}%
 \end{figure}
 
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics{hist_-3.84375_-2.625_10_3.eps}
-\caption{}%\
+\caption{Same as Figure \ref{fig:VL23_3} but for a resonance:
+\mv/\mdm\ = 10$^{-3.84375}$ and $\alpha = 10^{-2.625}$.}%
 \label{fig:VLresonance2}%
 \end{figure}
 
@@ -1265,8 +1397,9 @@ of distinct streams with velocity dispersion of order 1 km/s, such
 that the annihilation signal we might expect from the halo could be
 much larger than that people have suggested.
 
-{\bf Acknowledgments:}
-Hogg. NASA NNX08AJ48G.
+{\bf Acknowledgments:} It is a pleasure to thank Mulin Ding and David
+Hogg for comments and assistance. This research was partially
+supported by NASA (grant NNX08AJ48G).
 
 
 
