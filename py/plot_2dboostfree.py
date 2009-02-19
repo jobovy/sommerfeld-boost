@@ -2,6 +2,9 @@
 #function of m_V/m and alpha
 #argument1: log_10 Mh
 #argument2: grid (default: 64)
+#argument3: DM density profile inner slope (GNFW or Einasto based on value)
+#argument4: slope of the subhalo abundance power-law (default -0.9)
+#argument5: DM thermal free streaming limit (log10)
 #First calculate this density matrix using calc_2dboost.py!!!
 
 from math import *
@@ -33,6 +36,23 @@ if len(sys.argv) > 2:
 else:
     nms= 97
     nas= 65
+if len(sys.argv) > 3:
+    gamma= double(sys.argv[3])
+    if gamma > 0.75:
+        einasto= 0
+    else:
+        einasto= 1
+else:
+    gamma= 1.
+    einasto= 0
+if len(sys.argv) > 4:
+    n= double(sys.argv[4])
+else:
+    n= -0.9
+if len(sys.argv) > 5:
+    mo= 10**double(sys.argv[5])
+else:
+    mo= 10**-6
 nbins= 16#Hard-coded!!
 mv= linspace(-5,-2,nms)
 mv= 10**mv
@@ -47,7 +67,14 @@ for bb in range(nbins):
 #        continue
     #construct filenames
     bin= bb+1
-    restorefilename= '2dboost'+str(logMh)+'_'+str(nas)+'_'+str(bin)+'.sav'
+    restorefilename= '2dboost'+str(logMh)+'_'+str(nas)
+    if len(sys.argv) > 3:
+        restorefilename+= '_'+str(gamma)
+    if len(sys.argv) > 4:
+        restorefilename+= '_'+str(n)
+    if len(sys.argv) > 5:
+        restorefilename+= '_'+sys.argv[5]
+    restorefilename+='_'+str(bin)+'.sav'
     restorefile=open(restorefilename,'r')
     data=pickle.load(restorefile)
     S= data['S']
@@ -62,7 +89,14 @@ for bb in range(nbins):
         ii= 0
     restorefile.close()
 #also take the last bin
-restorefilename= '2dboost'+str(logMh)+'_'+str(nas)+'_'+str(17)+'.sav'
+restorefilename= '2dboost'+str(logMh)+'_'+str(nas)
+if len(sys.argv) > 3:
+    restorefilename+= '_'+str(gamma)
+if len(sys.argv) > 4:
+    restorefilename+= '_'+str(n)
+if len(sys.argv) > 5:
+    restorefilename+= '_'+sys.argv[5]
+restorefilename+='_'+str(nbins+1)+'.sav'
 restorefile=open(restorefilename,'r')
 data=pickle.load(restorefile)
 S= data['S']
@@ -74,9 +108,12 @@ while ii < nms:
     ii= ii+1
 restorefile.close()
 
-#Then plot
-plotfilename= '2dboost'+str(logMh)+'_'+str(nas)+'.eps'
 
+#Then plot
+plotfilename= '2dboost'+str(logMh)+'_'+str(nas)
+if len(sys.argv) > 5:
+    plotfilename+= '_'+sys.argv[5]
+plotfilename+='.eps'
 
 #Plotting parameters
 fig_width = 3.25  # width in inches
@@ -98,7 +135,7 @@ im= imshow(boostS,origin='lower',#cmap=cm.gray,
 axis([-3,-1,-5,-2])
 ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
-text(-2,-4.75,r'$M = 10^{'+str(logMh)+r'} M_{\odot}$')#,fontsize=16)
+text(-2.12,-4.75,r'$m_0 = 10^{'+sys.argv[5]+r'} M_{\odot}$')#,fontsize=16)
 CB1= colorbar(im,shrink=0.87)
 levels=linspace(0,5,11)
 #cont= contour(data['S'],levels,origin='lower',linewidths=1,colors='k',

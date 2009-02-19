@@ -40,11 +40,11 @@ def deriv(y,t,mv,a,gamma,einasto,n,q,A,C,K1,K2,vdisp_sat,somm_sat):
         fc*= special.gamma(3./gamma)*1./gamma*exp((3.*log(gamma)+2.-log(8.))/gamma)
         #dlnLdlnM= 1.+3.*K2+2.*conc/fc*K2*(pow(2,3./gamma)*pow(gamma,1.-3./gamma)*pow(conc,2.)*exp(-2./gamma*pow(conc,gamma)))
         dlnLdlnM= 1.+3.*K2-2.*conc/fc*K2*(pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma))))
-        print -2.*conc/fc*K2*(pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma))))
+#        print -2.*conc/fc*K2*(pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma))))
 #        print special.gammainc(3./gamma,2./gamma*pow(conc,gamma))
 #        print fc
 #        print (pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma)))), (pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
-        print dlnLdlnM
+#        print dlnLdlnM
     else:
         if gamma == 1:
             fc= log(1.+conc)-conc/(1.+conc)
@@ -56,8 +56,8 @@ def deriv(y,t,mv,a,gamma,einasto,n,q,A,C,K1,K2,vdisp_sat,somm_sat):
             LL/= pow(special.hyp2f1(3.-gamma,3.-gamma,4.-gamma,-concq)*pow(concq,3.-gamma)/(3.-gamma),2)
         dlnLdlnM= 1.+3.*K2-2.*conc/fc*K2*(pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
 #        print (pow(conc,2.)*exp(2./gamma*(1.-pow(conc,gamma)))), (pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
-        print -2.*conc/fc*K2*(pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
-        print dlnLdlnM
+#        print -2.*conc/fc*K2*(pow(conc,2.-gamma)*pow(1.+conc,gamma-3.))
+#        print dlnLdlnM
 
     vdisp= C*pow(t,1./3.)/(3*10**5)
     if vdisp <= vdisp_sat:

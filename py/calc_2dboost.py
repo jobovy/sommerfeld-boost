@@ -6,6 +6,7 @@
 #argument3: bin number (bins go vertical)
 #argument4: Einasto alpha, or gamma NFW (based on the value)
 #argument5: slope of the subhalo abundance power-law (default -0.9)
+#argument6: DM thermal free streaming limit (log10)
 
 from math import *
 from numpy import *
@@ -57,6 +58,10 @@ else:
     q= 0.1
     g= 10**-5
     A= 0.1*(n+1.)/(pow(q,n+1.)-pow(g,n+1.))
+if len(sys.argv) > 6:
+    mo= 10**double(sys.argv[6])
+else:
+    mo= 10**-6
 mv= linspace(-5,-2,nms)
 mv= 10**mv
 a= linspace(-3,-1,nas)
@@ -68,6 +73,8 @@ if len(sys.argv) > 4:
     savefilename+= '_'+str(gamma)
 if len(sys.argv) > 5:
     savefilename+= '_'+str(n)
+if len(sys.argv) > 6:
+    savefilename+= '_'+sys.argv[6]
 savefilename+='_'+str(bin)+'.sav'
 
 if os.path.exists(savefilename):
@@ -97,7 +104,7 @@ else:
 if bin != 17:
     while jj < bin*(nas-1)/nbins:
         while ii < nms:
-            boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto,10**-6,0.,n,0.1,A)
+            boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto,mo,0.,n,0.1,A)
             so= avg_enhance(mv[ii],m,a[jj],vdisp)
             S[ii,jj]= log10(so+boo)
             sys.stdout.write('\r'+str(ii+(jj-(bin-1)*(nas-1)/nbins)*nms+1)+'/'+str(nms*(nas-1)/nbins))
@@ -112,7 +119,7 @@ if bin != 17:
     sys.stdout.write('\n')
 else:
     while ii < nms:
-        boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto,10**-6,0.,n)
+        boo= boost(Mh,mv[ii],a[jj],0,gamma,einasto,mo,0.,n)
         so= avg_enhance(mv[ii],m,a[jj],vdisp)
         S[ii,jj]= log10(so+boo)
         sys.stdout.write('\r'+str(ii+(jj-(bin-1)*(nas-1)/nbins)*nms+1)+'/'+str(nms*(nas-1)/nbins))
