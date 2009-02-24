@@ -66,6 +66,7 @@
 \newcommand{\dSph}{dSph}
 \newcommand{\dSphs}{dSphs}
 \newcommand{\SDSS}{SDSS}
+\newcommand{\degree}{^\circ}
 
 %Some voodoo
 \def\urltilda{\kern -.15em\lower .7ex\hbox{\~{}}\kern .04em}
@@ -107,14 +108,12 @@ of substructure which is approximately self-similar to that of the
 Galactic halo, then additional boosts coming from the density
 enhancements of these small substructures and their small velocity
 dispersions enhance the dark matter annihilation cross section even
-further. I show that the main effect of these substructure boosts is
-that the Sommerfeld enhancement is pushed to its saturation level in
-all the interesting regions of parameters space, and that very large
-boost factors ($10^5$ -- $10^9$) are obtained in a large class of
-models. The implications of these boost factors for the detection of
-dark matter annihilation from dwarf Speroidal galaxies in the Galactic
-halo are such that many of the models proposed to explain the positron
-excess seen by the PAMELA experiment are already marginally excluded.
+further. I show that very large boost factors ($10^5$ -- $10^9$) are
+obtained in a large class of models. The implications of these boost
+factors for the detection of dark matter annihilation from dwarf
+Speroidal galaxies in the Galactic halo are such that many of the
+models proposed to explain the positron excess seen by the PAMELA
+experiment are already marginally excluded.
 \end{abstract}
 
 %\keywords{}
@@ -192,12 +191,12 @@ Sommerfeld enhancement is a generic effect present whenever there is
 an attractive force acting between the dark matter particles, \eg, due
 to a Yukawa interaction or a gauge interaction through vector bosons
 \cite{ArkaniHamed:2008qn}. The main effect of this attractive force is
-to enhance the annihilation cross section with a factor proportional
-to $\beta^{-1}$ ($\beta \equiv v/c$), this is known as ``$1/v$''
-enhancement. There are regions in the parameter space made up of the
-dark matter mass \mdm, the force carrier mass \mv, and the force
-``fine-structure constant'' $\alpha \equiv$ coupling$^2$/$4 \pi$ in
-which the enhancement is near a resonance, where it approximately
+to enhance the annihilation cross section $\sigma v$ with a factor
+proportional to $\beta^{-1}$ ($\beta \equiv v/c$), this is known as
+``$1/v$'' enhancement. There are regions in the parameter space made
+up of the dark matter mass \mdm, the force carrier mass \mv, and the
+force ``fine-structure constant'' $\alpha \equiv$ coupling$^2$/$4 \pi$
+in which the enhancement is near a resonance, where it approximately
 behaves as $\beta^{-2}$. However, the enhancement levels off at a
 certain $\beta$ due to the finite range of the attractive force ---
 large ($\alpha \sim\!10^{-1}$ -- $10^{-3}$) attractive forces with
@@ -209,7 +208,8 @@ gamma-ray background today and the cosmic microwave background
 matter particles in the Galactic halo today are of the order of the
 velocity dispersion of the halo, which is non-relativistic ($\beta\sim
 10^{-3}$), the cross section of dark matter particles annihilating in
-the halo could be significantly enhanced by this Sommerfeld enhancement.
+the halo could be significantly enhanced by this Sommerfeld
+enhancement.
 
 
 Both observations
@@ -229,11 +229,11 @@ during the last decade
 \cite{2004PhRvD..70b3512B,2004PhRvD..69d3501K,2007ApJ...657..262D,2007PhRvD..75h3526S,2008A&A...479..427L,2008MNRAS.384.1627P,2008ApJ...678..614S,2008ApJ...686..262K,2008Natur.456...73S,2008arXiv0809.2781G}. However,
 these subhalos are not only denser than the Galactic halo in which
 they orbit, they are also kinematically colder than the Galactic halo,
-with velocity dispersion typically being two orders of magnitude
+with velocity dispersions that are typically two orders of magnitude
 smaller \cite{1998ARA&A..36..435M,2007ApJ...670..313S}. This means
 that the Sommerfeld enhancement in these subhalos can be many orders
 of magnitude larger than the Sommerfeld enhancement acting in the
-Galactic halo. 
+Galactic halo.
 
 In addition to this larger boost due to the small
 velocity dispersion in the subhalos, these subhalos themselves are
@@ -364,10 +364,10 @@ grows as $\beta^{-2}$ in these regions.
 
 Of course, when considering the Sommerfeld enhancement of a halo of a
 certain velocity dispersion $\sigv$ we need to average the Sommerfeld
-enhancement the distribution of relative velocities of that halo. We
-will approximate the one-particle velocity distribution of the halo as
-a single truncated Maxwell-Boltzmann distribution with velocity
-dispersion $\sigv$
+enhancement over the distribution of relative velocities of that
+halo. We will approximate the one-particle velocity distribution of
+the halo as a single truncated Maxwell-Boltzmann distribution with
+velocity dispersion $\sigv$
 \begin{equation}\label{eq:maxboltz}
 f(v) \propto \left\{
 \begin{array}{rl}
@@ -387,11 +387,11 @@ innermost and outermost parts of the halo
 \cite{2007ApJ...667L..53W}. A more detailed treatment of the
 Sommerfeld enhancement in subhalos should take the non-uniform
 velocity dispersion in subhalos into account. Note that in the pure
-$1/v$ regime this averaging will tend to sustain the $1/v$ behavior up
+$1/v$ regime the averaging will tend to sustain the $1/v$ behavior up
 to a factor $\order(1)$, as we have that
 \begin{equation}
 \int_0^\infty \dd v \, v^2\, e^{-v^2/4\sigv^2}
-\somm\left/\int_0^\infty \dd v \, v^2\, e^{-v^2/4\sigv^2} \right.\propto
+\somm(v)\left/\int_0^\infty \dd v \, v^2\, e^{-v^2/4\sigv^2} \right.\propto
 \frac{1}{\sigv}\, ,
 \end{equation}
 since the truncation does not significantly influence the
@@ -405,7 +405,7 @@ averaging has no effect.
 \includegraphics[clip=]{avg-5_129.eps}%%BoundingBox: 178 291 400 474
 \includegraphics[clip=]{avg-6_129.eps}%%BoundingBox: 190 291 418 474
 \caption{Sommerfeld enhancement factor as a function of the particle
-physics parameters averaged over a Maxwell-Boltzman velocity
+physics parameters assuming a one-particle Maxwell-Boltzman velocity
 distribution with velocity dispersion \sigv\ for four different orders
 of magnitude of the velocity dispersion (all velocities are relative
 to the speed of light).}%
@@ -420,7 +420,7 @@ overall behavior of the Sommerfeld enhancement seen in Figure
 to do with the fact that the most probable relative velocity is given
 by the velocity dispersion for a Maxwell-Boltzmann relative velocity
 distribution. The Sommerfeld enhancement attains very large values for
-subhalos with very small velocity dispersions, moslty, but not
+subhalos with very small velocity dispersions, mostly, but not
 exclusively, in the resonance regions. This means that the smallest
 subhalos that exists in \CDM\ will get large boosts to their \DM\
 annihilation from Sommerfeld enhancement.
@@ -442,7 +442,7 @@ $\Delta\Omega$ along a given line-of-sight (\los) is given by
 \end{equation}
 In this \Eth\ is the treshold energy of the detector, $i$ denotes
 (possibly) different final states of the \DM\ annihilation, $\frac{\dd
-\Ngammai}{\dd E}$ is the spectrum from the annihilation to that state,
+\Ngammai}{\dd E}$ is the spectrum of the annihilation to that state,
 $\sigmaannv_i$ is the annihilation cross section to state $i$ (without
 the Sommerfeld enhancement), $\somm\left(\mv/\mdm,\alpha,\beta\right)$
 is the Sommerfeld enhancement which we have factored out of the cross
@@ -452,8 +452,8 @@ final annihilation products, such as the electrons and positrons
 supposedly seen by PAMELA/ATIC.
 
 
-We will focus our analysis on the quantity on the ``structure quantity''
-\lum($M$), which we define here as
+We will focus our analysis on the ``structure quantity'' \lum($M$),
+which we define here as
 \begin{equation}\label{eq:structquant}
 \lum(M)\equiv\somm\left(\mv/\mdm,\alpha,\sigv\right)\,\int_{\Delta\Omega}\,\frac{\dd\Omega}{4\pi}\int_{\mathrm{\los}}
 \dd l\, \rho^2(l)
@@ -542,18 +542,15 @@ profile was brought into question
 
 More recently, high-resolution numerical simulations have essentially
 ruled out the steepest cusps, such as Moore's profile, which has an
-inner cusp with logarithmic slope of -1.5, however steeper inner cusps
-than the original \NFW\ profile are still observed in numerical
+inner cusp a with logarithmic slope of -1.5, however steeper inner
+cusps than the original \NFW\ profile are still observed in numerical
 simulations \cite{2005MNRAS.364..665D}. Other recent simulations find
 inner slopes that are shallower than an \NFW\ profile
-\cite{2008MNRAS.385..545K,2008arXiv0808.2981S,2008arXiv0810.1522N},
-although there is a growing consensus that the logarithmic slope of
-the inner density profile is a quantity that hasn't fully converged
-yet in any numerical simulation. It also has become apparent in recent
-years that the inner density profile of \DM\ halos might not be
-described by a power-law divergence, but that, on the contrary, the
-logarithmic slope becomes ever shallower, leading to a cored density
-profile
+\cite{2008MNRAS.385..545K,2008arXiv0808.2981S,2008arXiv0810.1522N}. It
+also has become apparent in recent years that the inner density
+profile of \DM\ halos might not be described by a power-law
+divergence, but that, on the contrary, the logarithmic slope becomes
+ever shallower, leading to a cored density profile
 \cite{2004MNRAS.349.1039N,2005ApJ...624L..85M,2006AJ....132.2685M,2006AJ....132.2701G,2006MNRAS.365..147S,2008arXiv0808.2981S,2008MNRAS.391.1685S,2008arXiv0810.1522N}. Therefore,
 density profiles such as the Einasto profile
 \cite{einasto65a,1989A&A...223...89E} have been shown to provide an
@@ -580,22 +577,21 @@ The cuspy \DM\ profile we will use is a generalized \NFW\ profile (\GNFW):
 in which \rhos\ is a characteristic density and \rs\ a characteristic
 (scale-)radius.  The original \NFW\ profile is recovered for $\gamma$
 = 1 \cite{1997ApJ...490..493N}, which we will use as the fiducial
-cuspy model in what follows. Varying the value of the inner
-logarithmic slope $\gamma$ will allow us to describe the effect of
-steeper and shallower inner slopes than the \NFW\ model. Note that
-this functional form does \emph{not} include the exact form of Moore's
-profile; this need not concern us since inner cusps as steep as
-Moore's profile have been as good as excluded by the latest numerical
-simulations.
+model in what follows. Varying the value of the inner logarithmic
+slope $\gamma$ will allow us to describe the effect of steeper and
+shallower inner slopes than the \NFW\ model. Note that this functional
+form does \emph{not} include the exact form of Moore's profile; this
+need not concern us since inner cusps as steep as Moore's profile have
+been as good as excluded by the latest numerical simulations.
 
 The contribution of the \DM\ density profile on the structure quantity
 \lum\ can be simply evaluated in the context of any density model. As
-in Ref.~\cite{2007PhRvD..75h3526S} we assume that the distance
-\dist\ is much larger than the scale-radius of the \DM\ halo. For an
-\NFW\ profile 90\% of the flux originates from the region with one
-scale-radius, and we will, conservatively, only take contributions to
-the \DM\ annihilation flux coming rom this region for all the
-\GNFW\ profiles. Therefore, we find that 
+in Ref.~\cite{2007PhRvD..75h3526S} we assume that the distance to the
+subhalo \dist\ is much larger than the scale-radius of the \DM\
+halo. For an \NFW\ profile 90\% of the flux originates from the region
+within one scale-radius, and we will, conservatively, only take
+contributions to the \DM\ annihilation flux coming from this region
+for all of the different profiles. Therefore, we find that
 \begin{equation}\label{eq:lumrhosrsNFW}
 \int_{\Delta\Omega}\,\frac{\dd\Omega}{4\pi}\,\int_{\mathrm{\los}} \dd
 l\, \rho^2(l)= \normnfw(\gamma)\, \frac{\rhos^2\, \rs^3}{\dist^2}\, .
@@ -631,8 +627,8 @@ inner slope. It's functional dependence on the radius is given by
 \rho (r) = \rhominustwo\, \exp\left[-\frac{2}{\alpha}\left\{\left(\frac{r}{\rminustwo}\right)^{\alpha}-1\right\}\right]\, .
 \end{equation}
 Here, \rhominustwo\ is the density at the radius \rminustwo\ where the
-local slope is -2 and \alphaEinasto\ is a parameter often fixed at a
-value $\sim\!0.17$ \cite{2008MNRAS.391.1685S}. As above, assuming
+local slope is -2 and \alphaEinasto\ is a shape parameter often fixed
+at a value $\sim\!0.17$ \cite{2008MNRAS.391.1685S}. As above, assuming
 $\dist \gg \rminustwo$, calculating the flux originating from within
 the radius \rminustwo, we find that
 \begin{equation}\label{eq:lumrhosrsEinasto}
@@ -650,8 +646,8 @@ by
 where $\gamma[a,z]$ is the lower incomplete gamma function. The
 dependence of this normalization on \alphaEinasto\ is shown in Figure
 \ref{fig:normgammaEinasto}. In order to compare the Einasto profile as
-described here, we can relate the parameters $(\rhos,\rs)$ of the
-profile in \eqnname\ (\ref{eq:NFW}) to the parameters
+described here to the \GNFW\ profile, we can relate the parameters
+$(\rhos,\rs)$ of the \GNFW\ profile to the parameters
 $(\rhominustwo,\rminustwo)$ of the Einasto model by calculating the
 radius at which the logarithmic slope of the density versus radius
 profile equals -2. Thus, we find that
@@ -687,18 +683,18 @@ for the Einasto profile is given by
 \conc \equiv \frac{\Rvir}{\rminustwo}\, .
 \end{equation}
 A characteristic mass is given by the virial mass \Mvir. The virial
-mass of the \GNFW\ profile is given by
+mass of the \GNFW\ profile is
 \begin{equation}\label{eq:Mvirdef}
 \Mvir = 4\pi\rhos\rs^3 f(c)\, ,
 \end{equation}
 in which the function $f(c)$ is given by
-\begin{equation}
+\begin{equation}\label{eq:hypergeometric}
 f(c) = \frac{c^{3-\gamma}}{3-\gamma} \, {_2F_1}\left(3-\gamma,3-\gamma;4-\gamma;-c\right)\, .
-\end{equation}\label{eq:hypergeometric}
+\end{equation}
 The function $_2 F_1\left(a,b;c;z\right)$ is the Gauss hypergeometric
 function. In the $\gamma = 1$ case $f(c)$ is given by the familiar
 form $f(c) = \ln(1+c)-c/(1+c)$. The virial mass for the Einasto
-profile is given by
+profile is
 \begin{equation}
 \Mvir = 4\pi\rhominustwo\rminustwo^3 \frac{1}{\alphaEinasto} \exp\left(\frac{3\ln \alphaEinasto + 2 - \ln 8}{\alphaEinasto}\right) \gamma\left[\frac{3}{\alphaEinasto},\frac{2}{\alphaEinasto}\conc^\alphaEinasto\right]\, .
 \end{equation}
@@ -728,7 +724,7 @@ in the case of an Einasto profile. One can find \rmax\ by
 \begin{equation}
 \frac{\dd}{\dd x}\left[ \frac{f(x)}{x}\right] = 0\, ,
 \end{equation}
-and \vmax\ follows then immediatly.
+and \vmax\ follows then immediately.
 
 
 \subsection{Calculating the total boost}
@@ -747,8 +743,7 @@ profiles in \eqnname s (\ref{eq:lumrhosrsNFW}) and
 \lumsmooth(M) = \somm \, \lumsmoothc(M)\, ,
 \end{equation}
 in which \lumsmoothc\ is the luminosity that would come from the
-smooth component of the halo in the absence of Sommerfeld
-enhancememnt.
+smooth component of the halo in the absence of Sommerfeld enhancement.
 
 We can now write
 \begin{equation}
@@ -777,7 +772,7 @@ free-streaming scale, a \DM\ model-dependent quantity, which in many
 \cite{1999PhRvD..59d3517S,2001PhRvD..64h3507H,2004MNRAS.353L..23G,2005PhRvD..71j3520L,2006PhRvL..97c1301P}. The
 upper limit to this integral is some fraction $q$ of the halo mass
 $M$, since the abundance of substructure does not continue up to this
-mass scale.
+mass scale. In the following we will set $q$ equal to 0.1.
 
 In order to calculate the total boost from substructure to the
 annihilation cross section, we will write all of the quantities
@@ -805,15 +800,15 @@ observed \cite{2002PhRvD..66f3502H}. The same slope has also been
 observed in other simulations \cite{2004MNRAS.355..819G}.
 
 With the exponent $n$ fixed, we turn to the normalization of the
-relation given in \eqnname\ (\ref{eq:massfraction}). As one might
-expect by now, different high-resolution numerical simulations give
-different answers to this question as it relates to the abundance of
-subhalos of Galactic subhalos. The problem of the normalization is
-complicated by the fact that numerical simulations have only recently
-begun to be able to resolve substructure in subhalos in a Galaxy-size
-halo. While the simulations generally agree that the resolved
-substructure abundance of subhalos in the host halo adds up to
-$\sim\!10$\% of the total mass of the halo
+relation given in \eqnname\ (\ref{eq:massfraction}). Again, different
+high-resolution numerical simulations give different answers to this
+question as it relates to the abundance of subhalos of Galactic
+subhalos. The problem of the normalization is complicated by the fact
+that numerical simulations have only recently begun to be able to
+resolve substructure in subhalos in a Galaxy-size halo. While the
+simulations generally agree that the resolved substructure abundance
+of subhalos in the host halo adds up to $\sim\!10$\% of the total mass
+of the halo
 \cite{1998MNRAS.300..146G,1999ApJ...522...82K,2004MNRAS.353..624D,2003ApJ...598...49Z,2007ApJ...657..262D,2007ApJ...667..859D},
 the question of whether the substructure abundance in subhalos is just
 a scaled-down version of the substructure abundance in the host halo
@@ -837,7 +832,7 @@ substructure is in halos of mass $\gtrsim 10^{-5} M$.
 \includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474 
 \includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487 
 \includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 192 277 432 487
-\caption{The total (defined in Eq.~[\ref{eq:totalboost}])and reduced
+\caption{The total (defined in Eq.~[\ref{eq:totalboost}]) and reduced
 boost (defined in Eq.~[\ref{eq:redboost}]) for subhalos of two
 different mass scales. The dark matter profile of all the subhalos is
 assumed to be well-described by an \NFW\ profile.}%
@@ -888,13 +883,15 @@ haven't related to the mass of the subhalo yet, is the Sommerfeld
 enhancement factor \somm. The Sommerfeld enhancement depends on the
 mass of the subhalo through the velocity dispersion. Therefore, we
 need to relate the velocity dispersion of a \DM\ subhalo to its
-velocity dispersion. It is important to note that all we really need
-is an approximate relationship between the velocity dispersion and the
-halo mass which fits well the range of Galactic size halos to a scale
-not much smaller than the mass scale of the smallest dwarf Spheroidals
+mass. It is important to note that all we really need is an
+approximate relationship between the velocity dispersion and the halo
+mass which fits well the range of Galactic size halos to a scale not
+much smaller than the mass scale of the smallest dwarf Spheroidals
 known today, since in most cases the Sommerfeld enhancement will
 saturate at velocity dispersions of the order of the velocity
-dispersion of the dwarf Spheroidals.
+dispersion of the dwarf Spheroidals. This means that the specific form
+that we adopt below for the velocity dispersion-mass scaling relation
+does not matter greatly.
 
 On the scale of clusters there is a well-defined relationship between
 the mass of a \DM\ halo and its one-dimensional velocity dispersion
@@ -909,10 +906,10 @@ then
 \begin{equation}
 \rho(r) = \frac{\sigma^2}{2\pi G r^2}\, ,
 \end{equation}
-from which \eqnname\ (\ref{eq:vdispscaling}) immediatly follows. This
+from which \eqnname\ (\ref{eq:vdispscaling}) immediately follows. This
 scaling relation has been found to describe numerical simulations of
 cluster-sized halos extremely well
-\cite{1991ApJ...383...95E,1995MNRAS.275..720N,1995AJ....110...21C,1996ApJ...469..494E,1996MNRAS.281..716C,1998ApJ...495...80B}.From
+\cite{1991ApJ...383...95E,1995MNRAS.275..720N,1995AJ....110...21C,1996ApJ...469..494E,1996MNRAS.281..716C,1998ApJ...495...80B}. From
 recent numerical simulations it seems that we can use this relation
 even for subhalos of subhalos in a Galaxy sized dark matter halo. In
 Ref.~\cite{2008MNRAS.391.1685S} it is shown that the relation between
@@ -922,8 +919,8 @@ a power-law of the type
 m \propto \vmax^{3.5}\, .
 \end{equation}
 By a simple estimate of the velocity dispersion using the virial
-theorem, we can use the maximum circular velocity as a measure of the
-halos velocity dispersion. This would give $\sigv \propto
+theorem, we can use the circular velocity at \rminustwo\ as a measure
+of the halos velocity dispersion. This would give $\sigv \propto
 m^{1/3.5}$. Alternatively, we could use the circular velocity at the
 virial radius as a measure of the velocity dispersion. In the case of
 an \NFW\ profile we have that
@@ -969,7 +966,7 @@ $M$ and $\boost(M)$ is the substructure boost for a halo of that mass,
 as defined in Eq.~(\ref{eq:boost}). This total boost for subhalos of
 mass $M$ = $10^8$ \Msun\ and $M$ = $10^7$ \Msun\ calculated by
 following the procedure outlined in the previous subsection is shown
-in Figure \ref{fig:subboost} (\emph{top panels}. It is immediately
+in Figure \ref{fig:subboost} (\emph{top panels}). It is immediately
 obvious that the total boost factors can get very large in certain
 regions of the parameter space spanned by \mv/\mdm and $\alpha$:
 boosts vary between $10^2$ to $10^9$. These masses correspond to the
@@ -981,9 +978,9 @@ that appears for the pure Sommerfeld enhancement (as shown in Figure
 boosts, however, it is noteworthy that the resonances seems to be more
 highly peaked than they were in the pure Sommerfeld enhancement case,
 and that the boost the lower half of the parameter space, \ie, for
-smaller values of \mv/\mdm, seems to be higher than one would expect
-from the pure Sommerfeld enhancement combined with a boost factor from
-pure density enhancements.
+smaller values of \mv/\mdm, are higher than one would expect from the
+pure Sommerfeld enhancement combined with a boost factor from pure
+density enhancements.
 
 This is confirmed by looking at the ``reduced boost'' defined as
 \begin{equation}\label{eq:redboost}
@@ -994,8 +991,8 @@ Sommerfeld enhancement in the calculation of the total boost, \ie, the
 boost we would get if we set $\somm(m)$ equal to one in \eqnname\
 (\ref{eq:boost}). This $\boost_0$ corresponds to the boost factor that
 has been used before to estimate the total boost from density
-enhancements in \dSphs\ and it is generally of order \order(10). This
-reduced boost therefore divides out the contribution of the Sommerfeld
+enhancements in \dSphs\ and it is generally \order(10). This reduced
+boost therefore divides out the contribution of the Sommerfeld
 enhancement of the top-level subhalo and the boost from the
 overdensities in lower-level halos, and it would be equal to one if
 there were no extra boost coming from the fact that the substructures
@@ -1013,7 +1010,7 @@ $\alpha$ is small. Indeed, in the 1/$v$ regime the Sommerfeld
 enhancement is $\sim \alpha/\beta$ $\approx$ $10^{-2}$ for $\alpha =
 10^{-3}$, such that the Sommerfeld enhancement has fully saturated
 over the whole $\alpha$ range for large values of \mv/\mdm\ ($\mv/\mdm
-\sim 10^{-2}$). 
+\sim 10^{-2}$).
 
 \begin{figure*}[t]
 \includegraphics[clip=]{2dboost8_65_-0.7.eps}%%BoundingBox: 178 291 400 474
@@ -1047,7 +1044,7 @@ regions. In these regions the Sommerfeld enhancement both grows faster
 with decreasing relative velocity as well as saturates at a much
 larger value of the enhancement. Both of these effects conspire to
 give very large extra boosts. The resonance regions are clearly
-distinguishable in this plot of the reduced boost as 45$\deg$
+distinguishable in this plot of the reduced boost as 45$\degree$
 lines. Because the resonance regions are so narrow the apparent extra
 boosts in different resonances seems to vary greatly, but this is
 mostly due to the finite resolution of this figure. Extra boosts up to
@@ -1099,16 +1096,18 @@ subhalo with a very steep inner slope. These are shown in Figure
 \ref{fig:subboostprofiles} (\emph{top panels}), and, from comparing
 this with the total boost shown in Figure \ref{fig:subboost}, it is
 clear that the inner slope does not affect the total boost due to
-substructure. The main difference between the different dark matter
-density profiles is therefore given by the normalization of the $\lum
-\propto \rhos^2 \rs^3/\dist^2$ relation, shown in Figure
+substructure, neither the overall magnitude of the effect nor the
+structure in the (\mv/\mdm,$\alpha$) plane. The main difference in
+\DM\ annihilation flux between the different dark matter density
+profiles is therefore given by the normalization of the $\lum \propto
+\rhos^2 \rs^3/\dist^2$ relation, shown in Figure
 \ref{fig:normgammaNFW}.
 
 If the \DM\ density profiles of halos is better described by an
 Einasto profile then the substructure boost is affected more strongly
 by the shape parameter \alphaEinasto\, which basically describes how
 cored the \DM\ density profile is. Changing \alphaEinasto\ has a
-greater impact on changing the overall \DM\ density profileand
+greater impact on changing the overall \DM\ density profile and
 therefore also plays a larger role in the relation between the
 characteristic density, the concentration, and the mass of the
 subhalo. The total boosts for a $M$ = $10^8$ \Msun\ subhalo is shown
@@ -1127,7 +1126,7 @@ density profile. Thus, as was the case for the \GNFW\ profile, the
 impact of the different normalization of the
 $\rhominustwo^2\rminustwo^3/\dist^2$ for different values of
 \alphaEinasto\ will play a leading role in the difference between the
-different profile shapes. 
+different profile shapes.
 
 
 
@@ -1141,7 +1140,7 @@ different profile shapes.
 \includegraphics[clip=]{flux_ursaminor_65.eps}%%BoundingBox: 190 290 433 488
 \caption{Predicted \DM\ annihilation fluxes for various dwarf
 Spheroidal satellite galaxies. The properties of the \dSphs\ used are
-given in table \ref{tab:dsphs}.}%
+given in Table \ref{tab:dsphs}.}%
 \label{fig:dsph}%
 \end{figure*}
 
@@ -1191,8 +1190,8 @@ would be the case for \DM\ annihilation photons coming from the
 Galactic Center. That \dSphs\ make good candidates for \DM\
 annihilation detection has been much discussed before, especially for
 the ``classical'', or pre-\SDSS, \dSphs\
-\cite{2000PhRvD..61b3514B,2002PhRvD..66b3509T,2004PhRvD..70b3512B,2004PhRvD..69l3501E,2004PhRvD..70d3503P,2004PhRvL..93p1302H}. Especially
-the annihilation signal coming from Draco has been the subject of much
+\cite{2000PhRvD..61b3514B,2002PhRvD..66b3509T,2004PhRvD..70b3512B,2004PhRvD..69l3501E,2004PhRvD..70d3503P,2004PhRvL..93p1302H}. The
+annihilation signal coming from Draco has been the subject of much
 research in recent years because of its relative proximity to the
 Earth
 \cite{2002PhRvD..66b3509T,2004PhRvD..70d3503P,2006PhRvD..73f3510B,2006JCAP...03..003P,2007PhRvD..75b3513C,2007PhRvD..76l3509S,2007PhRvD..75h3526S,2008arXiv0812.1494P}. The
@@ -1216,10 +1215,10 @@ large mass-to-light ratios ($\sim\!10^3$)
 \cite{2008ApJ...678..614S,2008arXiv0809.2781G}. In the context of the
 Sommerfeld enhancement, these recently discovered \dSphs\ are
 especially interesting, since they also have the smallest velocity
-dispersion of all the satellites of our Galaxy. Predicting the \DM\
-annihilation signal from these low-surface brightness galaxies is
-complicated by the dearth of kinematical tracers of the \DM\
-distribution and their contamination with background stars
+dispersion of all of the known satellites of our Galaxy. Predicting
+the \DM\ annihilation signal from these low-surface brightness
+galaxies is complicated by the dearth of kinematical tracers of the
+\DM\ distribution and their contamination with background stars
 \cite{2009AJ....137.3109W}. Nevertheless, detailed studies have
 constrained the \DM\ density and velocity dispersion profiles of some
 of these \dSphs\
@@ -1286,27 +1285,29 @@ It is clear from Figure \ref{fig:dsph} that the \DM\ annihilation flux
 predicted to be coming from the \dSphs\ is very large in a large class
 of models. For example, the flux predicted for Draco exceeds the upper
 limit set on the \DM\ annihilation flux set by
-\cite{2008ApJ...679..428A} for all models parametrized by \mv/\mdm\
-and $\alpha$ by many orders of magnitude. We have to stress here that
-our predicted fluxes are all for the particle physics specific
-parameters given in Section \ref{sec:partphys}, \ie, \sigmaannv\ = $3
-\times 10^{-26}$ cm$^3$ s$^{-1}$, \mdm\ = 700 GeV and a particular
-form for the \DM\ annihilation spectrum. To predict the gamma-ray flux
-for a particular model with different values of these particle physics
-parameters one is required to calculate the particle physics parameter
-specific factor to the \DM\ annihilation flux and appropriately
-rescale the values given here. Nevertheless, any model that predicts
-very large annihilation cross sections to account for the PAMELA/ATIC
-excesses, and we are thinking here specifically about models that try
-to fit the PAMELA data with very large boost factors with respect to
-the fiducial annihilation cross section, give rise to these very large
-predicted gamma-ray fluxes coming from the \dSphs. Therefore, unless
-the boosts from substructure are somehow suppressed or the assumptions
-about the subhalo mass function, concentration-mass relation for
-subhalos, and/or any of the other asumptions about subhalos beyond the
-resolution limits of the state-of-the-art numerical simulations are
-violated for physical subhalos, these models are in tension with the
-experimental limits on the gamma-ray flux from \dSphs.
+Ref.~\cite{2008ApJ...679..428A} for all models parametrized by
+\mv/\mdm\ and $\alpha$ by many orders of magnitude. We have to stress
+here that our predicted fluxes are all for the particle physics
+specific parameters given in Section \ref{sec:partphys}, \ie,
+\sigmaannv\ = $3 \times 10^{-26}$ cm$^3$ s$^{-1}$, \mdm\ = 700 GeV and
+a particular form for the \DM\ annihilation spectrum. To predict the
+gamma-ray flux for a particular model with different values of these
+particle physics parameters one is required to calculate the particle
+physics parameter specific factor to the \DM\ annihilation flux and
+appropriately rescale the values given here. Nevertheless, any model
+that employs the Sommerfeld enhancement mechanism to predict the very
+large annihilation cross sections necessary to account for the
+PAMELA/ATIC excesses, and we are thinking here specifically about
+models that try to fit the PAMELA data with very large boost factors
+with respect to the fiducial annihilation cross section, give rise to
+these very large predicted gamma-ray fluxes coming from the
+\dSphs. Therefore, unless the boosts from substructure are somehow
+suppressed or the assumptions about the subhalo mass function,
+concentration-mass relation for subhalos, and/or any of the other
+asumptions about subhalos beyond the resolution limits of the
+state-of-the-art numerical simulations are violated for physical
+subhalos, these models are in tension with the experimental limits on
+the gamma-ray flux from \dSphs.
 
 %dSphs good candidates for \DM\ annihilation:
 %2000PhRvD..61b3514B,%Baltz/SUSY 2002PhRvD..66b3509T,%Tyler,Draco
@@ -1416,7 +1417,7 @@ and $\alpha = 10^{-1}$.}%
 Besides the satellite galaxies that have been observed in the Galactic
 halo \CDM\ predicts that the halo is filled with hundreds of
 individual subhalos ---a fact which gives rise to the so-called
-``missing sattelites problem''
+``missing satellites problem''
 \cite{1999ApJ...522...82K,1999ApJ...524L..19M}. Each of these subhalos
 has a mass of the order of the masses of the observed \dSphs\ or
 smaller, and thus will be kinematically cold with respect to the main
@@ -1456,18 +1457,18 @@ $N$-body simulation\footnote{Available at
 \texttt{http://www.ucolick.org/\urltilda$\!$diemand/vl/data.html}}
 \cite{2008Natur.454..735D}. \VL\ II is a state-of-the-art $N$-body
 simulation of a Galaxy-sized halo since redshift 104.3. It sampled the
-region of the main halo with 1,1 $\times$ 10$^9$ particles, each with
+region of the main halo with 1.1 $\times$ 10$^9$ particles, each with
 a mass of 4,100 \Msun. Over 40,000 subhalos can be resolved within 402
-kpc of the center of the main hala and 20,047 subhalos are detected
+kpc of the center of the main halo and 20,047 subhalos are detected
 which had a peak circular velocity larger than 4 km s$^{-1}$ at some
 time. The properties of the subhalos in this latter sample can be
 accurately established, \ie, they are unaffected by resolution
 effects. We select from this sample the 9,830 subhalos which lie
 within the tidal radius of the main halo, which is approximately 462
 kpc. We show the distribution of these subhalos in mass and distance
-from the Sun in Figure \ref{fig:VL23_1}. The have placed the Sun at
+from the Sun in Figure \ref{fig:VL23_1}. We have placed the Sun at
 random locations at a distance of 8.5 kpc of the center of the main
-halo, corresponding to a earth-based-observer-like vantage point. The
+halo, corresponding to an earth-based-observer-like vantage point. The
 distribution of the distances in Figure \ref{fig:VL23_1} is given for
 three of these random observers and the distribution is very similar
 for all three observers. We see that most of the subhalos have masses
@@ -1486,19 +1487,19 @@ of the galaxy.
 
 For each halo we can estimate the velocity dispersion using the
 mass-velocity dispersion relation given in \eqnname\
-\ref{eq:vdispscaling} and we can calculate the characteristic density
-\rhos\ and the characteristic length-scale \rs\ from the values of
-\vmax\ and \rmax\ given for each subhalo, by the procedure outlined at
-the end of Sec.~\ref{sec:DMprofile}. For a given set of particle
-physics parameters \mv/\mdm\ and $\alpha$ this allows us to calculate
-the total boost to the \DM\ annihilation cross section for each of the
-subhalos, and by using the assumptions about the particle physics
-given in Sec.~\ref{sec:partphys} we can also calculate the photon flux
-from \DM\ annihilation coming from each subhalo, and the total
-gamma-ray flux coming from all of the subhalos combined.
+(\ref{eq:vdispscaling}) and we can calculate the characteristic
+density \rhos\ and the characteristic length-scale \rs\ from the
+values of \vmax\ and \rmax\ given for each subhalo, by the procedure
+outlined at the end of Sec.~\ref{sec:DMprofile}. For a given set of
+particle physics parameters \mv/\mdm\ and $\alpha$ this allows us to
+calculate the total boost to the \DM\ annihilation cross section for
+each of the subhalos, and by using the assumptions about the particle
+physics given in Sec.~\ref{sec:partphys} we can also calculate the
+photon flux from \DM\ annihilation coming from each subhalo, and the
+total gamma-ray flux coming from all of the subhalos combined.
 
-We will only cover some typical cases for the Sommerfeld enhancement
-here which suffice to show the general trend. We consider the particle
+We only cover some typical cases for the Sommerfeld enhancement here
+which suffices to show the general trend. We consider the particle
 physics parameters \mv/\mdm\ and $\alpha$ which give rise to the
 smallest Sommerfeld enahcements in Figures \ref{fig:VL23_2} and
 \ref{fig:VL23_3}, \ie, \mv/\mdm\ = 10$^{-2}$ and $\alpha$ = 0.001. The
@@ -1514,9 +1515,8 @@ distance of 8.5 kpc from the galactic center. At most observation
 locations this total flux is about 10$^{-7}$ cm$^2$ s$^{-1}$, with the
 high-end tail not extending further than about half an order of
 magnitude from this. This is still a gamma-ray flux which is quite
-large, showing that the cumulative signal from all of the subhalos is
-dominated by the contribution from the subhalos which give rise to the
-largest gamma-ray fluxes.
+large, showing that the cumulative signal gives rise to the largest
+gamma-ray fluxes.
 
 Figures \ref{fig:VL51_1} and \ref{fig:VL51_2} show the same for a
 different extremum of the Sommerfeld enhancement: the case in which
@@ -1536,7 +1536,7 @@ great deal for the predicted gamma-ray flux.
 Finally, we look at the expected signal coming from subhalos when the
 Sommerfeld enhancement is at a resonance, the same distribution as
 before are shown in Figures \ref{fig:VLresonance1} and
-\ref{fig:VLresonance2}. Again we find large boost factors and
+\ref{fig:VLresonance2}. Again we find large boost factors and large
 individual and total gamma-ray fluxes, although they are smaller than
 the values found for the \mv/\mdm\ = 10$^{-5}$ and $\alpha$ = 0.1
 parameter set. However, since these values are near a resonance in a
@@ -1545,7 +1545,7 @@ like that for the parameter set \mv/\mdm\ = 10$^{-2}$ and $\alpha$ =
 0.001, this again shows that whether dark halos, \ie, subhalos without
 star formation, can be detected through \DM\ annihilation products
 depends very sensitively on the particle physics parameters upon which
-the Sommerfeld enhancement depends. 
+the Sommerfeld enhancement depends.
 
 In conclusion we can say that in a scenario in which there is
 Sommerfeld enhancement there is much more hope to detect dark subhalos
@@ -1564,7 +1564,7 @@ to describe the attractive (or, possibly, repulsive) force that gives
 rise to the Sommerfeld enhancement, the contributions from the
 specific particle physics model and the details of the \DM\
 distribution in the substructure can no longer be as cleanly separated
-as they had been before. This means that in a scenario in which there
+as they have been before. This means that in a scenario in which there
 is a significant Sommerfeld enhancement, previous claims of ``particle
 physics independent'' conclusions about the \DM\ annihilation signal
 from substructure (\eg,
@@ -1609,7 +1609,7 @@ the \dSphs\ (see Figure \ref{fig:dsph}).
 
 
 We have not discussed the substructure boost to the \DM\ annihilation
-signal from unresolved substructure in the Galactic halo. This is
+signal from unresolved substructure in the Galactic halo. This is,
 however, interesting in the light of the Sommerfeld enhancement, since
 it might lead to a different prediction about the relative magnitudes
 of the annihilation signal coming from the resolved Galactic halo and
@@ -1635,9 +1635,9 @@ dispersion of the streams in the halo, which is what the 100 km
 s$^{-1}$ Galactic halo velocity dispersion corresponds to in these
 scenarios. Thus, the expected \DM\ annihilation signal from the main
 halo could be much larger than that naively expected for a halo with a
-velocity dispersion of a 100 km s$^{-1}$.
+velocity dispersion of 100 km s$^{-1}$.
 
-{\bf Acknowledgments:} It is a pleasure to thank Mulin Ding and David
+{\bf Acknowledgements:} It is a pleasure to thank Mulin Ding and David
 Hogg for comments and assistance. This research was partially
 supported by NASA (grant NNX08AJ48G).
 
