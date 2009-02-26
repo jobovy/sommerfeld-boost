@@ -69,7 +69,7 @@ def avg_enhance(mv,m,a,b,nsamples=100,vesc=0):
     norm= 0.
 
     if vesc == 0.:
-        vesc= 2.*sqrt(2.)*b
+        vesc= 8.*b#2.*sqrt(2.)*b
 
     bs= linspace(vesc/(nsamples-1.),vesc,nsamples-1)
 

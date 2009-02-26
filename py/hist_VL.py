@@ -144,6 +144,48 @@ else:
 for ii in range(sublum.shape[0]):
     sublum[ii,9]= log10(sublum[ii,9])
 
+
+
+
+
+
+savefilename2= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_2.sav'
+
+if os.path.exists(savefilename2):
+    savefile2=open(savefilename2,'r+')
+    data=pickle.load(savefile2)
+    totallumnosomm=data['totallumnosomm']
+else:
+    #calculate the signal for the 1,000 observers without Sommerfeld enhancement
+    nobs2= 1001
+    totallumnosomm= zeros(nobs2)
+    for ii in range(nobs2):
+        #Generate random observer
+        phi= numpy.random.uniform(0.,2.*pi)
+        theta= numpy.random.uniform(0.,pi)
+        pos= array([obsR*sin(theta)*sin(phi), obsR*sin(theta)*cos(phi), obsR*cos(theta)])
+        for jj in range(sublum.shape[0]):
+            dist2= pow((sublum[jj,0]-pos[0]),2.)+pow((sublum[jj,1]-pos[1]),2.)+pow((sublum[jj,2]-pos[2]),2.)
+            totallumnosomm[ii]+= sublum[jj,3]*(1.+sublum[jj,6])/dist2
+        totallumnosomm[ii]= log10(totallumnosomm[ii]) +log10(0.5/17.)
+    #Save
+    savefile2=open(savefilename2,'w')
+    data={'totallumnosomm':totallumnosomm}
+    pickle.dump(data,savefile2)
+
+print numpy.sum(totallumnosomm)/numpy.sum(totallum)
+
+
+#Post-process the fluxes to incorporate the new spectrum
+
+#First do totallum
+for ii in range(totallum.shape[0]):
+    totallum[ii]= totallum[ii]+log10(0.5/17.)
+#Then do the sublumobs
+for ii in range(sublumobs.shape[0]):
+    for jj in range(sublumobs.shape[1]):
+        sublumobs[ii,jj,1]= sublumobs[ii,jj,1]+log10(0.5/30)
+
     
 #Histogram all of this
 plotfilename1= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_1.eps'
@@ -165,6 +207,8 @@ params = {'backend': 'ps',
 rcParams.update(params)
 #rc('text',usetex=True)
 fig= figure(1)
+
+
 
 nbins= 20
 
@@ -200,7 +244,9 @@ xlabel(r'$\log_{10}\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{
 
 ax=subplot(1,2,2)
 hist(sublumobs[0,:,2],bins=nbins,histtype='step',ec='black')
-axis([6.25,7.25,0,2000])
+#axis([.5,2.5,0,2000])
+#axis([6.25,7.25,0,2000])
+axis([3.25,4.25,0,2000])
 xlabel(r'$\log_{10}\mathcal{B}$')#,fontsize=16)
 ax.set_yticklabels([])
 
@@ -226,8 +272,21 @@ params = {'backend': 'ps',
 rcParams.update(params)
 
 fig= figure(3)
-hist(totallum[0:1000],bins=nbins,histtype='step',ec='black')
-axis([-2,-1,0,250])
-ylabel(r'$N_{\mbox{{\footnotesize obs}}}$')#,fontsize=16)
-xlabel(r'$\log_{10}\mbox{Total }\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
+
+#Set up different axes
+ax1 = fig.add_subplot(111)
+ax1.hist(totallum[0:1000],bins=nbins,histtype='step',ec='black')
+#ax1.set_xlim(-9,-8)
+ax1.set_xlim(-6.5,-4.5)
+ax1.set_ylim(0,250)
+ax1.set_ylabel(r'$N_{\mbox{{\footnotesize obs}}}$')#,fontsize=16)
+ax1.set_xlabel(r'$\log_{10}\mbox{Total }\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
+
+ax2=ax1.twiny()
+
+ax2.hist(totallumnosomm[0:1000],bins=nbins,histtype='step',ec='black',linestyle='dashed')
+ax2.set_xlabel(r'$\log_{10}\mbox{Total }\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$'+'(No Sommerfeld enhancement)')#,fontsize=16)
+ax2.set_xlim(-10,-9)
+
+
 savefig(plotfilename3,format='eps')

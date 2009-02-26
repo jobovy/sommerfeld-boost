@@ -80,7 +80,7 @@ im= imshow(data['S'],origin='lower',#cmap=cm.gray,
 axis([-3,-1,-5,-2])
 ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
-text(-1.75,-4.75,r'$\beta = 10^{-3}$')#,fontsize=16)
+text(-1.75,-4.75,r'$\beta = 10^{-4}$')#,fontsize=16)
 CB1= colorbar(im,shrink=0.87)
 levels=linspace(0,5,11)
 #cont= contour(data['S'],levels,origin='lower',linewidths=1,colors='k',
