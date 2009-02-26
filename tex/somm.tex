@@ -111,9 +111,9 @@ dispersions enhance the dark matter annihilation cross section even
 further. I show that very large boost factors ($10^5$ -- $10^9$) are
 obtained in a large class of models. The implications of these boost
 factors for the detection of dark matter annihilation from dwarf
-Speroidal galaxies in the Galactic halo are such that many of the
-models proposed to explain the positron excess seen by the PAMELA
-experiment are already marginally excluded.
+Speroidal galaxies in the Galactic halo are such that they outshine
+the extragalactic background gamma-ray flux and should be detectable
+by \Fermi.
 \end{abstract}
 
 %\keywords{}
@@ -245,10 +245,27 @@ relationships for \CDM\ halos
 \cite{2001MNRAS.321..559B,2001ApJ...554..114E}) as well as a smaller
 velocity dispersion. This opens up the possibility that the dark
 matter annihilation signal in these already cold subhalos can be
-boosted even further by contribution of their substructure. In this
-paper we quantify the magnitude of this new substructure boost and
-discuss its implications for the detection of dark matter annihilation
-from subhalos in the Galactic halos.
+boosted even further by contribution of their substructure. 
+
+In this paper we quantify the magnitude of this new substructure boost
+and discuss its implications for the detection of dark matter
+annihilation from subhalos in the Galactic halos. As we will show, the
+total combined boost from Sommerfeld enhancement and substructure can
+reach very large values (10$^5$ -- 10$^9$), and these boosts are only
+weakly dependent on the assumptions that we have to make about the
+abundance of substructure and the \DM\ density profile. We use these
+total boosts together with published \DM\ density profiles of some of
+the dwarf Spheroidal satellite galaxies of the Milky Way to predict
+the total flux of gamma-rays from \DM\ annihilation that would be
+detectable by Fermi and find that in most of the models that posit the
+Sommerfeld enhancement the \DM\ annihilation signal from the dwarf
+Spheroidals shines above the diffuse extragalactic gamma-ray
+background, which is the only background signal at the high Galactic
+lattitudes of these satellite galaxies. Finally, we also consider the
+prospects for detecting smaller subhalos of the Galaxy by computing
+annihilation fluxes of subhalos in the \VL\-2 simulation. We will see
+that whether these subhalos will be detectable in the near future is
+highly dependent on the exact details of the Sommerfeld enhancement.
 
 
 
@@ -465,37 +482,46 @@ derive actual numbers for the photon flux from \DM\ annihilation, we
 briefly describe the other quantities appearing in \eqnname\
 (\ref{eq:flux}) here.
 
-\subsection{Some details of the particle physics that do not particularly concern us here}\label{sec:partphys}
+\subsection{Some details of the particle physics}\label{sec:partphys}
 
 
 For the annihilation cross section without taking account of any
 Sommerfeld enhancement we will adopt the fiducial value $\sigmaannv =
-3 \times 10^{-26} $ cm$^3$ s$^{-1}$. The energy spectrum of the \DM\
+3 \times 10^{-26} $ cm$^3$ s$^{-1}$, and we choose a fiducial mass for
+the \DM\ particle of \mdm\ = 700 GeV. The energy spectrum of the \DM\
 annihilation depends on the model used to describe the \DM\ and its
 interactions and it is outside of the scope of this paper to provide a
 detailed treatment of this for different \DM\ models. Therefore, we
-use an annihilation spectrum appropriate for neutralino dark matter,
-which provides a reasonable fit to a variety of different annihilation
-products. Since the energy spectrum contributes a multiplicative
-factor to the \DM\ annihilation flux, the effect of different
-annihilation spectra can be incorporated by simply multiplying our
-results with the appropriate factor. The neutralino dark matter
-annihilation spectrum we use has the form
-\cite{1998APh.....9..137B,2004PhRvD..70j3529F}
+will adopt an annihilation spectrum for \DM\ annihilation into photons
+appropriate for the newer models that were proposed to explain the
+PAMELA/ATIC results. Specifically, we use a gamma ray spectrum from a
+cascade annihilation model. In these models the \DM\ annihilates into
+a new light degree of freedom which then in turn decays into leptons
+and photons. The injection spectrum per \DM\ annihilation is given by
+\cite{2009arXiv0901.2926M}
 \begin{equation}\label{eq:annspectrum}
-\frac{\dd \Ngamma}{\dd E} = \frac{a_1}{\mdm} \left(\frac{E}{\mdm}\right)^{-3/2}\, \exp\left[-a_2\frac{E}{\mdm}\right]\, ,
+\begin{split}
+\frac{\dd \Ngamma}{\dd E} = &\frac{\alpha_{\mbox{{\footnotesize EM}}}}{\pi} \frac{1+(1-E/\mdm)^2}{E}\\
+&\times\left\{-1 + \ln\left(4(1-E/\mdm)\right) -2\ln\left(\frac{m_l}{\mdm}\right)\right\}\, ,
+\end{split}
 \end{equation}
-with parameters $a_1\sim 1$ and $a_2 \sim 10$, depending on the
-details of the annihilation process
-\cite{2004PhRvD..70j3529F}. Integrating this spectrum using a
-threshold energy appropriate for \Fermi\, $\Eth = 4$ GeV, and choosing
-a \DM\ mass, $\mdm = 700$ GeV, we find that
-\begin{equation}
-\int_{\Eth}^{\mdm}\dd E\, \sum_i \frac{\dd
-\Ngammai}{\dd E} \approx 17\, ,
+in which $\alpha_{\mbox{{\footnotesize EM}}}$ is the electromagnetic
+coupling constant and $m_l$ is the mass of the leptons created in the
+process $\chi\chi \rightarrow l^+l^-\gamma$. Integrating this spectrum
+using an energy range appropriate for \Fermi\ we find that
+\begin{equation} 
+\int_{4 \mbox{{\footnotesize GeV}}}^{250 \mbox{{\footnotesize GeV}}}\dd E\, \frac{\dd
+\Ngamma}{\dd E} \approx 0.5\, .
 \end{equation}
-with any differences due to variations in $(a_1,a_2)$ and $\mdm$
-between different models leading to changes of a factor $\order(10)$. 
+We find a similar number if we integrate the spectrum due to one
+cascade step. It is interesting to note that these photon spectra have
+fewer photons in them, about an order of magnitude less, than the
+annihilation spectra due to neutralino annihilation which are often
+used \cite{1998APh.....9..137B,2004PhRvD..70j3529F}. Of course, since
+the energy spectrum contributes a multiplicative factor to the \DM\
+annihilation flux, the effect of different annihilation spectra can be
+incorporated by simply multiplying our results with the appropriate
+factor.
 
 
 
@@ -745,7 +771,7 @@ in which \lumsmoothc\ is the luminosity that would come from the
 smooth component of the halo in the absence of Sommerfeld enhancement.
 
 We can now write
-\begin{equation}
+\begin{equation}\label{eq:totboost}
 \begin{split}
 \lum(M) & = \somm\,\lumsmoothc(M) + \lumsub(M)\\
 &= \left[ \somm + \frac{\lumsub(M)}{\lumsmoothc(M)}\right] \lumsmoothc(M)\, .
@@ -826,21 +852,6 @@ here which places 10\% of the mass of the subhalo in the form of
 ``resolved'' substructure, where we adopt the definition that resolved
 substructure is in halos of mass $\gtrsim 10^{-5} M$.
 
-\begin{figure*}[t]
-\includegraphics[clip=]{2dboost8_65.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474 
-\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487 
-\includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 192 277 432 487
-\caption{The total (defined in Eq.~[\ref{eq:totalboost}]) and reduced
-boost (defined in Eq.~[\ref{eq:redboost}]) for subhalos of two
-different mass scales. The dark matter profile of all the subhalos is
-assumed to be well-described by an \NFW\ profile.}%
-\label{fig:subboost}%
-\end{figure*}
-
-
-
-
 
 In the previous section we calculated $\lumsmoothc$ for the different
 \DM\ density profiles and found in all cases that
@@ -892,6 +903,51 @@ dispersion of the dwarf Spheroidals. This means that the specific form
 that we adopt below for the velocity dispersion-mass scaling relation
 does not matter greatly.
 
+
+
+
+\begin{figure*}[t]
+\includegraphics[clip=]{2dboost8_65.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost7_65.eps}\\%%BoundingBox: 190 291 430 474 
+\includegraphics[clip=]{2dredboost8_65.eps}%%BoundingBox: 170 277 398 487 
+\includegraphics[clip=]{2dredboost7_65.eps}%%BoundingBox: 192 277 432 487
+\caption{The total (defined in Eq.~[\ref{eq:totalboost}]) and reduced
+boost (defined in Eq.~[\ref{eq:redboost}]) for subhalos of two
+different mass scales. The dark matter profile of all the subhalos is
+assumed to be well-described by an \NFW\ profile.}%
+\label{fig:subboost}%
+\end{figure*}
+
+
+
+
+\begin{figure*}[t]
+\includegraphics[clip=]{2dboost8_65_0.8.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_1.4.eps}\\%%BoundingBox: 190 291 430 474
+\includegraphics[clip=]{2dboost8_65_0.1.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_0.2.eps}%%BoundingBox: 190 291 430 474
+\caption{The total boost for a $M=10^8$ \Msun\ subhalo for different
+shapes of the \DM\ density profile: a generalized \NFW\ profile
+described by an inner slope $\gamma$ (\emph{top panels}); an Einasto
+profile described by a shape parameter \alphaEinasto\ (\emph{bottom
+panels}).}%
+\label{fig:subboostprofiles}%
+\end{figure*}
+
+\begin{figure*}[t]
+\includegraphics[clip=]{2dboost8_65_-0.7.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_-1.0.eps}\\%%BoundingBox: 190 291 430 474
+\includegraphics[clip=]{2dboost8_65_-3.eps}%%BoundingBox: 178 291 400 474
+\includegraphics[clip=]{2dboost8_65_-12.eps}%%BoundingBox: 190 291 430 474
+\caption{The total boost for a $M=10^8$ \Msun\ for different slopes
+$n$ for the subhalo mass function (\emph{top panels}) and for
+different values of the dark matter thermal free streaming limit
+$m_0$ (\emph{bottom panels}).}%
+\label{fig:subboostslope}%
+\end{figure*}
+
+
+
 On the scale of clusters there is a well-defined relationship between
 the mass of a \DM\ halo and its one-dimensional velocity dispersion
 which one can derive from adiabatic scaling arguments
@@ -941,22 +997,12 @@ velocity and mass of Canes Venatici I from Ref.~\cite{2007ApJ...670..313S}.
 \subsection{The total and the ``reduced'' boost}
 
 
-\begin{figure*}[t]
-\includegraphics[clip=]{2dboost8_65_0.8.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost8_65_1.4.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{2dboost8_65_0.1.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost8_65_0.2.eps}%%BoundingBox: 190 291 430 474
-\caption{The total boost for a $M=10^8$ \Msun\ subhalo for different
-shapes of the \DM\ density profile: a generalized \NFW\ profile
-described by an inner slope $\gamma$ (\emph{top panels}); an Einasto
-profile described by a shape parameter \alphaEinasto\ (\emph{bottom
-panels}).}%
-\label{fig:subboostprofiles}%
-\end{figure*}
 
 
 
-We define the total boost for a given subhalo mass as
+
+We define the total boost for a given subhalo mass as (see \eqnname\
+[\ref{eq:totboost}])
 \begin{equation}\label{eq:totalboost}
 \totalboost(M) = \somm(M) + \boost(M)\, ,
 \end{equation}
@@ -1011,18 +1057,6 @@ enhancement is $\sim \alpha/\beta$ $\approx$ $10^{-2}$ for $\alpha =
 over the whole $\alpha$ range for large values of \mv/\mdm\ ($\mv/\mdm
 \sim 10^{-2}$).
 
-\begin{figure*}[t]
-\includegraphics[clip=]{2dboost8_65_-0.7.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost8_65_-1.0.eps}\\%%BoundingBox: 190 291 430 474
-\includegraphics[clip=]{2dboost8_65_-3.eps}%%BoundingBox: 178 291 400 474
-\includegraphics[clip=]{2dboost8_65_-12.eps}%%BoundingBox: 190 291 430 474
-\caption{The total boost for a $M=10^8$ \Msun\ for different slopes
-$n$ for the subhalo mass function (\emph{top panels}) and for
-different values of the dark matter thermal free streaming limit
-$m_0$ (\emph{bottom panels}).}%
-\label{fig:subboostslope}%
-\end{figure*}
-
 
 However, the Sommerfeld enhancement has not saturated in all regions
 of parameter space at this mass scale, and for smaller values of
@@ -1050,34 +1084,6 @@ mostly due to the finite resolution of this figure. Extra boosts up to
 $\sim 10^5$ are obtained in these resonances, and these extra boosts
 increase along the resonances when decreasing $\alpha$, again due to
 the higher saturation level for smaller $\mv/\mdm$ values.
-
-\begingroup
-%\squeezetable
-\begin{table*}
-\begin{ruledtabular}
-\begin{tabular}{lrr@{.}lr@{}lr@{}lr@{.}lr@{.}lr@{.}l@{ $\times$ }lc}
-dSph & \dist\ & \multicolumn{2}{c}{\sigv}\ & \multicolumn{2}{c}{\rmax} & \multicolumn{2}{c}{\vmax} & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{3}{c}{$M(<\rs)$} & References\\
-& [kpc] & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[$\Msun$ kpc$^{-3}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{3}{c}{[$\Msun$]}&\\[4pt]
-\hline
-Carina.......................................................................... & 101 & 6&8 & 3&\phantom{f}      & 16&$\!\!\!$      & 1&1 $\times$ $10^7$ & 1&4 & 7&4&$10^8$ & 1,3\\
-Coma Berenices...........................................................      & 44  & 4&6 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&10$^7$ & 2,4\\
-Draco........................................................................... & 80  & 5&5 & 8&      & 40&      & 1&0 $\times$ $10^7$ & 3&7 & 1&2&$10^9$ & 1,3\\
-Fornax.........................................................................  & 138 & 11&1& 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
-Leo I............................................................................  & 250 & 8&8 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
-Leo II...........................................................................  & 205 & 6&7 & 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
-Sculptor.......................................................................  & 79  & 8&5 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
-Sextans........................................................................  & 86  & 5&8 & 2&      & 10&      & 1&0 $\times$ $10^7$ & 0&9 & 1&9&$10^7$ & 1,3\\
-Ursa Major II..............................................................   & 32  & 6&7 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&$10^7$ & 2,4\\
-Ursa Minor..................................................................    & 66  & 15&0& 6&      & 30&      & 1&0 $\times$ $10^8$ & 2&8 & 5&2&$10^8$ & 1,3\\
-%Willman I............. & 38 &&& 5&5 $\times$ $10^8$ & 0&2 & 1&10$^{15}$\\
-%Segue I.................. & 23 &&&&
-\end{tabular}
-\end{ruledtabular}
-\caption{Properties of the dwarf Spheroidals used in this study.\\
-References: (1) \citet{2008ApJ...672..904P}, (2) \citet{2008ApJ...678..614S}, (3) \citet{1998ARA&A..36..435M}, (4) \citet{2007ApJ...670..313S}.}\label{tab:dsphs}
-\end{table*}
-\endgroup
-
 
 
 
@@ -1127,6 +1133,34 @@ $\rhominustwo^2\rminustwo^3/\dist^2$ for different values of
 \alphaEinasto\ will play a leading role in the difference between the
 different profile shapes.
 
+\begingroup
+%\squeezetable
+\begin{table*}
+\begin{ruledtabular}
+\begin{tabular}{lrr@{.}lr@{}lr@{}lr@{.}lr@{.}lr@{.}l@{ $\times$ }lc}
+dSph & \dist\ & \multicolumn{2}{c}{\sigv}\ & \multicolumn{2}{c}{\rmax} & \multicolumn{2}{c}{\vmax} & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{3}{c}{$M(<\rs)$} & References\\
+& [kpc] & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[$\Msun$ kpc$^{-3}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{3}{c}{[$\Msun$]}&\\[4pt]
+\hline
+Carina.......................................................................... & 101 & 6&8 & 3&\phantom{f}      & 16&$\!\!\!$      & 1&1 $\times$ $10^7$ & 1&4 & 7&4&$10^8$ & 1,3\\
+Coma Berenices...........................................................      & 44  & 4&6 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&10$^7$ & 2,4\\
+Draco........................................................................... & 80  & 5&5 & 8&      & 40&      & 1&0 $\times$ $10^7$ & 3&7 & 1&2&$10^9$ & 1,3\\
+Fornax.........................................................................  & 138 & 11&1& 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
+Leo I............................................................................  & 250 & 8&8 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
+Leo II...........................................................................  & 205 & 6&7 & 4&      & 20&      & 1&0 $\times$ $10^7$ & 1&9 & 1&5&$10^8$ & 1,3\\
+Sculptor.......................................................................  & 79  & 8&5 & 6&      & 30&      & 1&0 $\times$ $10^7$ & 2&8 & 5&2&$10^8$ & 1,3\\
+Sextans........................................................................  & 86  & 5&8 & 2&      & 10&      & 1&0 $\times$ $10^7$ & 0&9 & 1&9&$10^7$ & 1,3\\
+Ursa Major II..............................................................   & 32  & 6&7 & $\cdot$&& $\cdot$& & 3&0 $\times$ $10^8$ & 0&3 & 2&0&$10^7$ & 2,4\\
+Ursa Minor..................................................................    & 66  & 15&0& 6&      & 30&      & 1&0 $\times$ $10^8$ & 2&8 & 5&2&$10^8$ & 1,3\\
+%Willman I............. & 38 &&& 5&5 $\times$ $10^8$ & 0&2 & 1&10$^{15}$\\
+%Segue I.................. & 23 &&&&
+\end{tabular}
+\end{ruledtabular}
+\caption{Properties of the dwarf Spheroidals used in this study.\\
+References: (1) \citet{2008ApJ...672..904P}, (2) \citet{2008ApJ...678..614S}, (3) \citet{1998ARA&A..36..435M}, (4) \citet{2007ApJ...670..313S}.}\label{tab:dsphs}
+\end{table*}
+\endgroup
+
+
 
 
 
@@ -1138,8 +1172,10 @@ different profile shapes.
 \includegraphics[clip=]{flux_umaii_65.eps}%%BoundingBox:  171 290 412 500
 \includegraphics[clip=]{flux_ursaminor_65.eps}%%BoundingBox: 190 290 433 500
 \caption{Predicted \DM\ annihilation fluxes for various dwarf
-Spheroidal satellite galaxies. The properties of the \dSphs\ used are
-given in Table \ref{tab:dsphs}.}%
+Spheroidal satellite galaxies. The background flux of extragalactic
+photons in the relevant energy range is given under the name of the
+dwarf Spheroidal. The properties of the \dSphs\ used are given in
+Table \ref{tab:dsphs}.}%
 \label{fig:dsph}%
 \end{figure*}
 
@@ -1196,9 +1232,10 @@ Earth
 \cite{2002PhRvD..66b3509T,2004PhRvD..70d3503P,2006PhRvD..73f3510B,2006JCAP...03..003P,2007PhRvD..75b3513C,2007PhRvD..76l3509S,2007PhRvD..75h3526S,2008arXiv0812.1494P}. The
 prospects for \DM\ annihilation detection from \dSphs\ has in general
 been found to be rather poor, with detection with \Fermi\ being
-unlikely \cite{2008arXiv0812.1494P}. Some of the \dSphs\ have already
-been the subject of observational searches for \DM\ annihilation and
-some limits on the \DM\ annihilation signal have already been set
+unlikely \cite{2008arXiv0812.1494P,2009arXiv0902.4330P}. Some of the
+\dSphs\ have already been the subject of observational searches for
+\DM\ annihilation and some limits on the \DM\ annihilation signal have
+already been set
 \cite{2008ApJ...678..594W,2008ApJ...679..428A,2008APh....29...55A,2008PhRvD..78h7101D,2009ApJ...691..175A,2008arXiv0810.3561M}.
 
 
@@ -1282,65 +1319,41 @@ shown here will be similar to that of the ones shown in Figure
 
 It is clear from Figure \ref{fig:dsph} that the \DM\ annihilation flux
 predicted to be coming from the \dSphs\ is very large in a large class
-of models. For example, the flux predicted for Draco exceeds the upper
-limit set on the \DM\ annihilation flux set by
-Ref.~\cite{2008ApJ...679..428A} for all models parametrized by
-\mv/\mdm\ and $\alpha$ by many orders of magnitude. We have to stress
-here that our predicted fluxes are all for the particle physics
-specific parameters given in Section \ref{sec:partphys}, \ie,
-\sigmaannv\ = $3 \times 10^{-26}$ cm$^3$ s$^{-1}$, \mdm\ = 700 GeV and
-a particular form for the \DM\ annihilation spectrum. To predict the
-gamma-ray flux for a particular model with different values of these
-particle physics parameters one is required to calculate the particle
-physics parameter specific factor to the \DM\ annihilation flux and
-appropriately rescale the values given here. Nevertheless, any model
-that employs the Sommerfeld enhancement mechanism to predict the very
-large annihilation cross sections necessary to account for the
-PAMELA/ATIC excesses, and we are thinking here specifically about
-models that try to fit the PAMELA data with very large boost factors
-with respect to the fiducial annihilation cross section, give rise to
-these very large predicted gamma-ray fluxes coming from the
-\dSphs. Therefore, unless the boosts from substructure are somehow
-suppressed or the assumptions about the subhalo mass function,
-concentration-mass relation for subhalos, and/or any of the other
-asumptions about subhalos beyond the resolution limits of the
-state-of-the-art numerical simulations are violated for physical
-subhalos, these models are in tension with the experimental limits on
-the gamma-ray flux from \dSphs.
-
-%dSphs good candidates for \DM\ annihilation:
-%2000PhRvD..61b3514B,%Baltz/SUSY 2002PhRvD..66b3509T,%Tyler,Draco
-%2004PhRvD..70b3512B,%Baltz,general 
-%2004PhRvD..69l3501E,%Evans,general
-%2004PhRvD..70d3503P,%Peirani, Draco, Sagit, M31, M87.
-%2004PhRvL..93p1302H,%Hooper: Sagit: 511 keV
-%2006PhRvD..73f3510B,%Bergstrom,Draco 
-%2006JCAP...03..003P,%Profumo,Draco, SUSY 
-%2007PhRvD..75b3513C,%Colafrancesco,Draco
-%2007PhRvD..76l3509S,%Sanchez-Conde,Draco
-%2007PhRvD..75h3526S,%StrigariI 
-%2008ApJ...678..614S,%StrigariII
-%2008arXiv0809.2781G,%Geha 
-%2008arXiv0812.1494P,%Pieri, no Draco, Umi,Carina or Sextans with Fermi
-
-%Limits:
-%2008ApJ...678..594W,%Wood: Whipple: Draco and Umi
-%2008ApJ...679..428A,%Albert et al, MAGIC: <10^-11
-%2008APh....29...55A,%HESS: Sagg: 
-%2008PhRvD..78h7101D,%Driscoll: Draco with STACEE: limit on the spectrum
-%2009ApJ...691..175A,%Hess: Canis Major
-%2008arXiv0810.3561M,%MAGIC: Willman 1 < 10^-12
-
-%dSph modeling:
-%2007PhRvD..75h3526S,%StrigariI
-%2007ApJ...667L..53W,%Walker: vdisp profiles
-%2008ApJ...672..904P,%Penarubia+CDM
-%2009AJ....137.3109W,%Walker, EM contamination
-
-
-
-
-
+of models. We have to stress here that our predicted fluxes are all
+for the particle physics specific parameters given in Section
+\ref{sec:partphys}, \ie, \sigmaannv\ = $3 \times 10^{-26}$ cm$^3$
+s$^{-1}$, \mdm\ = 700 GeV and a particular form for the \DM\
+annihilation spectrum. To predict the gamma-ray flux for a particular
+model with different values of these particle physics parameters one
+is required to calculate the particle physics parameter specific
+factor to the \DM\ annihilation flux and appropriately rescale the
+values given here. In order to compare these signals to the expected
+background flux of extragalactic gamma rays (which is the only
+relevant background since these \dSphs\ are at high Galactic
+lattitude), we have integrated the extragalactic gamma ray flux as
+measured by EGRET over the energy range between 4 GeV -- 250 GeV and
+multiplied it with the solid angle that the \dSphs\ span on the
+sky. The extragalactic gamma ray flux is given by a power law
+\cite{1998ApJ...494..523S}
+\begin{equation}
+\frac{\dd \Ngamma}{\dd E \,\dd A \, \dd t\,\dd \Omega} = k\,\left(\frac{E}{E_0}\right)^{-\alpha}\, ,
+\end{equation}
+where $k = 7.3 \times 10^{-9}$, $\alpha$ = 2.10, and $E_0 = 0.45$
+GeV. We have included the background flux of extragalactic photons in
+Figure \ref{fig:dsph}. This background flux is in all cases of the
+order of 10$^{-13}$ photons cm$^{-2}$ s$^{-1}$, such that the \DM\
+annihilation boosted by substructure and Sommerfeld enhancement
+outshine this background in all of the considered models, and by many
+orders of magnitude in most models. Given that the flux above 100 MeV
+over a 55 days time-span needed to separate a point source of \DM\
+annihilation from the background by \Fermi\ to give a 5$\sigma$
+detection is about 10$^{-8}$ photons cm$^{-1}$ s$^{-1}$ and that the
+necessary fluxes scale roughly as $t_{\mbox{{\footnotesize
+exp}}}^{-1/2}$ \cite{2008JCAP...07..013B}, the \DM\ annihilation of
+these \dSphs\ should be detectable by \Fermi\ in many of the models
+parameterized by ($\mv/\mdm,\alpha$). We conclude that the prospects
+for detecting \DM\ annihilation from the \dSphs\ with \Fermi\ are very
+good in models that include a significant Sommerfeld enhancement.
 
 
 
@@ -1377,9 +1390,11 @@ subhalos for the same values of \mv/\mdm\ and $\alpha$.}%\
 \begin{figure}
 \centering
 \includegraphics{hist_-2_-3_10_3.eps}
-\caption{Total gamma-ray flux from subhalos in \VL\ II for 1,000 random
-observers at 8.5 kpc from the center of the main \VL\ halo for
-\mv/\mdm\ = 10$^{-2}$ and $\alpha = 10^{-3}$.}%\
+\caption{Total gamma-ray flux from subhalos in \VL\ II for 1,000
+random observers at 8.5 kpc from the center of the main \VL\ halo for
+\mv/\mdm\ = 10$^{-2}$ and $\alpha = 10^{-3}$. For comparison we show
+the total gamma-ray flux from subhalos in the absence of Sommerfeld
+enhancement as the dashed histogram and the top horizontal axis.}%\
 \label{fig:VL23_3}%
 \end{figure}
 
@@ -1509,13 +1524,16 @@ be seen, the total boost factors are quite small: the typical boost
 factor is only about 30 with the highest boost factors being about
 100. The total gamma-ray flux coming from subhalos is then also quite
 small in this case, as is shown in Figure \ref{fig:VL23_3}, in which
-the total gamma-ray flux is shown for 1,000 random observer at a
+the total gamma-ray flux is shown for 1,000 random observers at a
 distance of 8.5 kpc from the galactic center. At most observation
 locations this total flux is about 10$^{-7}$ cm$^2$ s$^{-1}$, with the
 high-end tail not extending further than about half an order of
-magnitude from this. This is still a gamma-ray flux which is quite
-large, showing that the cumulative signal gives rise to the largest
-gamma-ray fluxes.
+magnitude from this. For comparison the dashed histogram in Figure
+\ref{fig:VL23_3} shows the same distribution of total gamma-ray flux
+for different random observers in the absence of any Sommerfeld
+enhancement. This confirms that the total gamma-ray flux with
+Sommerfeld enhancement is about an order of magnitude larger than
+without Sommerfeld enhancement. 
 
 Figures \ref{fig:VL51_1} and \ref{fig:VL51_2} show the same for a
 different extremum of the Sommerfeld enhancement: the case in which
@@ -1527,10 +1545,12 @@ total flux in the scenario described in the previous paragraph. The
 total boost factors for most of the halos are very large, of the order
 of 10$^7$, which gives rise to this very large photon-flux. The total
 predicted flux in this case is many orders of magnitude larger than
-the total flux in the other extremum of the Sommerfeld
-enhancement. Thus, the exact value of the parameters \mv/\mdm\ and
-$\alpha$, upon which the Sommerfeld enhancement depends, matters a
-great deal for the predicted gamma-ray flux.
+the total flux in the other extremum of the Sommerfeld enhancement and
+about seven orders of magnitude larger than the total gamma-ray flux
+in the absence of any Sommerfeld enhancement. Thus, the exact value of
+the parameters \mv/\mdm\ and $\alpha$, upon which the Sommerfeld
+enhancement depends, matters a great deal for the predicted gamma-ray
+flux.
 
 Finally, we look at the expected signal coming from subhalos when the
 Sommerfeld enhancement is at a resonance, the same distribution as
@@ -1570,13 +1590,24 @@ from substructure (\eg,
 \cite{2007PhRvD..75h3526S,2008Natur.456...73S}) need to be
 reconsidered in this new framework. This complicates the analysis but
 it opens up new possibilities for detecting \DM\ annihilation and
-learning about the properties of the dark sector. Given a detailed
-knowledge of the density structure and velocity dispersion profile of
-the dwarf Spheroidal galaxies, much can be learned if we are able to
-detect the \DM\ annihilation signal coming from these \dSphs, by
-considering the relative signal and using the results of
-Sec.~\ref{sec:dsphs}, or by using the detailed velocity dispersion
-profile of the \dSphs\ \cite{2009arXiv0902.0362R}.
+learning about the properties of the dark sector. As we showed above,
+the combination of the Sommerfeld enhancement and the substructure
+that is believed to exists down to small scales leads to very large
+boost factors because of the combined effect of the higher densities
+of small subhalos as well as the fact that they are kinematically
+colder than the larger halos. This leads to predictions for the \DM\
+annihilation gamma-ray flux that are much larger than was previously
+believed. As we showed in Sec.~\ref{sec:dsphs}, in models in which
+there is a significant Sommerfeld enhancement at the level of the
+Galactic halo and its subhalos, the \DM\ annihilation signal from the
+dwarf Spheroidals outshines the extragalactic background flux and the
+predicted gama-ray fluxes are so large that they should be detectable
+by \Fermi. Given a detailed knowledge of the density structure and
+velocity dispersion profile of the dwarf Spheroidal galaxies, much can
+then be learned if we are able to detect the \DM\ annihilation signal
+coming from these \dSphs, by considering the relative signal and using
+the results of Sec.~\ref{sec:dsphs}, or by using the detailed velocity
+dispersion profile of the \dSphs\ \cite{2009arXiv0902.0362R}.
 
 We have focused on the consequences of the Sommerfeld enhancement for
 \DM\ subhalos in a \LCDM\ cosmology, using the latest results from
