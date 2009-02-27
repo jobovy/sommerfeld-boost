@@ -67,6 +67,7 @@
 \newcommand{\dSphs}{dSphs}
 \newcommand{\SDSS}{SDSS}
 \newcommand{\degree}{^\circ}
+\newcommand{\Jtilde}{\ensuremath{\tilde{J}}}
 
 %Some voodoo
 \def\urltilda{\kern -.15em\lower .7ex\hbox{\~{}}\kern .04em}
@@ -257,15 +258,16 @@ abundance of substructure and the \DM\ density profile. We use these
 total boosts together with published \DM\ density profiles of some of
 the dwarf Spheroidal satellite galaxies of the Milky Way to predict
 the total flux of gamma-rays from \DM\ annihilation that would be
-detectable by Fermi and find that in most of the models that posit the
-Sommerfeld enhancement the \DM\ annihilation signal from the dwarf
-Spheroidals shines above the diffuse extragalactic gamma-ray
-background, which is the only background signal at the high Galactic
-lattitudes of these satellite galaxies. Finally, we also consider the
-prospects for detecting smaller subhalos of the Galaxy by computing
-annihilation fluxes of subhalos in the \VL\-2 simulation. We will see
-that whether these subhalos will be detectable in the near future is
-highly dependent on the exact details of the Sommerfeld enhancement.
+detectable by the Fermi Gamma-ray Space Telescope (\Fermi) and find
+that in most of the models that posit the Sommerfeld enhancement the
+\DM\ annihilation signal from the dwarf Spheroidals shines above the
+diffuse extragalactic gamma-ray background, which is the only
+background signal at the high Galactic lattitudes of these satellite
+galaxies. Finally, we also consider the prospects for detecting
+smaller subhalos of the Galaxy by computing annihilation fluxes of
+subhalos in the \VL\ II simulation. We will see that whether these
+subhalos will be detectable in the near future is highly dependent on
+the exact details of the Sommerfeld enhancement.
 
 
 
@@ -1138,7 +1140,7 @@ different profile shapes.
 \begin{table*}
 \begin{ruledtabular}
 \begin{tabular}{lrr@{.}lr@{}lr@{}lr@{.}lr@{.}lr@{.}l@{ $\times$ }lc}
-dSph & \dist\ & \multicolumn{2}{c}{\sigv}\ & \multicolumn{2}{c}{\rmax} & \multicolumn{2}{c}{\vmax} & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{3}{c}{$M(<\rs)$} & References\\
+dSph & \dist\ & \multicolumn{2}{c}{$\sigma_0$}\ & \multicolumn{2}{c}{\rmax} & \multicolumn{2}{c}{\vmax} & \multicolumn{2}{c}{\rhos} & \multicolumn{2}{c}{\rs} & \multicolumn{3}{c}{$M(<\rs)$} & References\\
 & [kpc] & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{2}{c}{[km s$^{-1}$]} & \multicolumn{2}{c}{[$\Msun$ kpc$^{-3}$]} & \multicolumn{2}{c}{[kpc]} & \multicolumn{3}{c}{[$\Msun$]}&\\[4pt]
 \hline
 Carina.......................................................................... & 101 & 6&8 & 3&\phantom{f}      & 16&$\!\!\!$      & 1&1 $\times$ $10^7$ & 1&4 & 7&4&$10^8$ & 1,3\\
@@ -1315,6 +1317,27 @@ shown here will be similar to that of the ones shown in Figure
 \ref{fig:dsph}.
 
 
+At this point we can also make a connection to another quantity that
+is often used to describe the astrophysical contribution to the \DM\
+annihilation signal, $J$. This quantity is generally defined as
+\begin{equation}
+J \equiv \frac{1}{\Delta \Omega} \int_{\Delta \Omega} \dd \Omega\, \int_{\mbox{{\footnotesize los}}} \dd l\, \rho^2\, ,
+\end{equation}
+and is therefore equal to the line-of-sight integral over the density
+squared averaged over solid angle. We can define a slight variant of
+this which takes into account the Sommerfeld enhancement
+\begin{equation}
+\Jtilde \equiv \frac{1}{\Delta \Omega} \int_{\Delta \Omega} \dd \Omega\, \int_{\mbox{{\footnotesize los}}} \dd l\, \rho^2 \somm\, ,
+\end{equation}
+in which \somm\ is the Sommerfeld enhancement averaged over the
+distribution of relative velocities. If we work this out for the
+dwarf Spheroidals, using the expression from \eqnname\
+(\ref{eq:lumrhosrsNFW}) for the line-of-sight integral averaged over
+the solid angle spanned by the scale radius \rs\ we find that this
+\Jtilde\ is approximately equal to the total boost \totalboost, with a
+pre-factor \order(1). Therefore in the case of the \dSphs\ studied
+here the \Jtilde\ can be approximately read off from the top panels of
+Figure \ref{fig:subboost}.
 
 
 It is clear from Figure \ref{fig:dsph} that the \DM\ annihilation flux
@@ -1328,22 +1351,27 @@ model with different values of these particle physics parameters one
 is required to calculate the particle physics parameter specific
 factor to the \DM\ annihilation flux and appropriately rescale the
 values given here. In order to compare these signals to the expected
-background flux of extragalactic gamma rays (which is the only
-relevant background since these \dSphs\ are at high Galactic
-lattitude), we have integrated the extragalactic gamma ray flux as
-measured by EGRET over the energy range between 4 GeV -- 250 GeV and
-multiplied it with the solid angle that the \dSphs\ span on the
-sky. The extragalactic gamma ray flux is given by a power law
+background flux we will only consider contributions to the background
+flux of extragalactic gamma rays. Although there are also
+contributions to the background flux from pion-decay, inverse Compton
+scattering, and Bremsstrahlung, at the high Galactic lattitudes at
+which the dwarf Spheroidals are found these are all of the same order
+or smaller than the extragalactic background
+\cite{2004ApJ...613..962S}. We have integrated the extragalactic gamma
+ray flux as measured by EGRET over the energy range between 4 GeV --
+250 GeV and multiplied it with the solid angle that the \dSphs\ span
+on the sky. The extragalactic gamma ray flux is given by a power law
 \cite{1998ApJ...494..523S}
 \begin{equation}
 \frac{\dd \Ngamma}{\dd E \,\dd A \, \dd t\,\dd \Omega} = k\,\left(\frac{E}{E_0}\right)^{-\alpha}\, ,
 \end{equation}
-where $k = 7.3 \times 10^{-9}$, $\alpha$ = 2.10, and $E_0 = 0.45$
-GeV. We have included the background flux of extragalactic photons in
-Figure \ref{fig:dsph}. This background flux is in all cases of the
-order of 10$^{-13}$ photons cm$^{-2}$ s$^{-1}$, such that the \DM\
+where $k = 7.3 \times 10^{-6}$ cm$^{-2}$ s$^{-1}$ sr$^{-1}$
+GeV$^{-1}$, $\alpha$ = 2.10, and $E_0 = 0.45$ GeV. We have included
+the background flux of extragalactic photons in Figure
+\ref{fig:dsph}. This background flux is in all cases of the order of
+10$^{-9}$ -- 10$^{-10}$ photons cm$^{-2}$ s$^{-1}$, such that the \DM\
 annihilation boosted by substructure and Sommerfeld enhancement
-outshine this background in all of the considered models, and by many
+outshine this background in most of the parameter space, and by a few
 orders of magnitude in most models. Given that the flux above 100 MeV
 over a 55 days time-span needed to separate a point source of \DM\
 annihilation from the background by \Fermi\ to give a 5$\sigma$
@@ -1351,9 +1379,14 @@ detection is about 10$^{-8}$ photons cm$^{-1}$ s$^{-1}$ and that the
 necessary fluxes scale roughly as $t_{\mbox{{\footnotesize
 exp}}}^{-1/2}$ \cite{2008JCAP...07..013B}, the \DM\ annihilation of
 these \dSphs\ should be detectable by \Fermi\ in many of the models
-parameterized by ($\mv/\mdm,\alpha$). We conclude that the prospects
-for detecting \DM\ annihilation from the \dSphs\ with \Fermi\ are very
-good in models that include a significant Sommerfeld enhancement.
+parameterized by ($\mv/\mdm,\alpha$). The Ursa Major II \dSph\ is the
+only \dSph\ for which the \DM\ annihilation dominates the background
+in all the regions of parameter space. This shows that the newly
+discovered, most-dark-matter-dominated satellite galaxies are possibly
+the best targets for the indirect detection of \DM. We conclude that
+the prospects for detecting \DM\ annihilation from the \dSphs\ with
+\Fermi\ are very good in models that include a significant Sommerfeld
+enhancement.
 
 
 
@@ -1667,9 +1700,9 @@ scenarios. Thus, the expected \DM\ annihilation signal from the main
 halo could be much larger than that naively expected for a halo with a
 velocity dispersion of 100 km s$^{-1}$.
 
-{\bf Acknowledgements:} It is a pleasure to thank Mulin Ding, David
-Hogg, and Neal Weiner for comments and assistance. This research was partially
-supported by NASA (grant NNX08AJ48G).
+{\bf Acknowledgements:} It is a pleasure to thank Ilias Cholis, Mulin
+Ding, David Hogg, and Neal Weiner for comments and assistance. This
+research was partially supported by NASA (grant NNX08AJ48G).
 
 
 \bibliographystyle{apsrev}
