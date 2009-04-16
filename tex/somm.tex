@@ -704,8 +704,17 @@ comes from the region within \rminustwo.}%\
 Further on it will sometimes be useful to describe the \DM\ density
 profiles by different parameters than a characteristic density and
 radius. Another set of parameters is given by a concentration
-parameter and a mass. The concentration for both the \GNFW\ profile as
-for the Einasto profile is given by
+parameter and a mass. The virial radius \Rvir\ of a halo is defined to
+be the radius within which the mean density of the halo is $\Delta$
+times the critical density $\rhoc$, where $\Delta = 178\,
+\omegam^{0.45} \approx 100$
+\cite{1996MNRAS.282..263E,1998ApJ...495...80B}. The virial mass is
+simply the mass contained within a sphere of radius \Rvir
+\begin{equation}\label{eq:virialmass}
+\Mvir \equiv \frac{4\pi}{3} \Delta \rhoc \Rvir^3\, .
+\end{equation}
+The concentration for both the \GNFW\ profile as for the Einasto
+profile is then defined by
 \begin{equation}\label{eq:concdef}
 \conc \equiv \frac{\Rvir}{\rminustwo}\, .
 \end{equation}
@@ -727,11 +736,8 @@ profile is
 \end{equation}
 In this last expression $\gamma\left[a,z\right]$ is the lower
 incomplete gamma function. The density can then be expressed in terms
-of the concentration by using the definition of the virial mass:
-$\Mvir \equiv 4\pi/3 \Delta \rhoc \Rvir^3$, where $\Delta = 178\,
-\omegam^{0.45} \approx 100$
-\cite{1996MNRAS.282..263E,1998ApJ...495...80B}, and \rhoc\ is the
-critical density.
+of the concentration by using the definition of the virial mass given
+in \eqnname~(\ref{eq:virialmass}).
 
 Another pair of parameters that one can use to characterize the \DM\
 density profile is the maximum circular velocity \vmax\ and the radius
@@ -1052,7 +1058,7 @@ the top-level subhalo has a velocity dispersion of $\sim 10^{-5}$ this
 means that the Sommerfeld enhancement has mostly saturated at these
 large values of \mv/\mdm, even in regions of parameter space in which
 $\alpha$ is small. Indeed, in the 1/$v$ regime the Sommerfeld
-enhancement is $\sim \alpha/\beta$ $\approx$ $10^{-2}$ for $\alpha =
+enhancement is $\sim \alpha/\beta$ $\approx$ $10^{2}$ for $\alpha =
 10^{-3}$, such that the Sommerfeld enhancement has fully saturated
 over the whole $\alpha$ range for large values of \mv/\mdm\ ($\mv/\mdm
 \sim 10^{-2}$).
