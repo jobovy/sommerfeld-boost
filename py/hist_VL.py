@@ -193,15 +193,15 @@ plotfilename2= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_2.eps'
 plotfilename3= 'hist_'+sys.argv[1]+'_'+sys.argv[2]+'_'+sys.argv[3]+'_3.eps'
 
 #Plotting parameters
-fig_width = 3.25  # width in inches
-fig_height = 1.6      # height in inches
+fig_width = 3#3.25  # width in inches
+fig_height =4.5      # height in inches
 fig_size =  [fig_width,fig_height]
 params = {'backend': 'ps',
           'axes.labelsize': 8,
           'text.fontsize': 8,
           'legend.fontsize': 8,
-          'xtick.labelsize':8,
-          'ytick.labelsize':8,
+          'xtick.labelsize':10,
+          'ytick.labelsize':10,
           'text.usetex': True,
           'figure.figsize': fig_size}
 rcParams.update(params)
@@ -213,25 +213,40 @@ fig= figure(1)
 nbins= 20
 
 subplots_adjust(left=None, bottom=None, right=None, top=None,wspace=None, hspace=0.4)
-subplot(1,2,1)
+subplot(2,1,1)
 hist(sublumobs[0,:,0],bins=nbins,histtype='step',ec='black')
 hist(sublumobs[1,:,0],bins=nbins,histtype='step',ec='black',linestyle='dashed')
 hist(sublumobs[2,:,0],bins=nbins,histtype='step',ec='black',linestyle='dashdot')
 hist(sublumobs[3,:,0],bins=nbins,histtype='step',ec='black',linestyle='dotted')
 axis([0,3,0,2000])
 ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
-xlabel(r'$\log_{10}D$ [kpc]')#,fontsize=16)
+xlabel(r'$\log_{10}D$ $[\mathrm{kpc}]$')#,fontsize=16)
 
-ax=subplot(1,2,2)
+ax=subplot(2,1,2)
+fig.subplots_adjust(hspace=.3)
 hist(sublum[:,9],bins=nbins,histtype='step',ec='black')
 axis([3,8,0,2000])
-#ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
+ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
 xlabel(r'$\log_{10}M(<r_{-2}) [M_\odot]$')#,fontsize=16)
-ax.set_yticklabels([])
+#ax.set_yticklabels([])
 savefig(plotfilename1,format='eps')
 
+#Plotting parameters
+fig_width = 3#3.25  # width in inches
+fig_height = 4.5      # height in inches
+fig_size =  [fig_width,fig_height]
+params = {'backend': 'ps',
+          'axes.labelsize': 8,
+          'text.fontsize': 8,
+          'legend.fontsize': 8,
+          'xtick.labelsize':10,
+          'ytick.labelsize':10,
+          'text.usetex': True,
+          'figure.figsize': fig_size}
+rcParams.update(params)
+#rc('text',usetex=True)
 fig= figure(2)
-subplot(1,2,1)
+subplot(2,1,1)
 hist(sublumobs[0,:,1],bins=nbins,histtype='step',ec='black')
 hist(sublumobs[1,:,1],bins=nbins,histtype='step',ec='black',linestyle='dashed')
 hist(sublumobs[2,:,1],bins=nbins,histtype='step',ec='black',linestyle='dashdot')
@@ -242,13 +257,15 @@ ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
 xlabel(r'$\log_{10}\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
 
 
-ax=subplot(1,2,2)
+ax=subplot(2,1,2)
+fig.subplots_adjust(hspace=.4)
 hist(sublumobs[0,:,2],bins=nbins,histtype='step',ec='black')
 #axis([.5,2.5,0,2000])
 #axis([6.25,7.25,0,2000])
 axis([3.25,4.25,0,2000])
+ylabel(r'$N_{\mbox{{\footnotesize sub}}}$')#,fontsize=16)
 xlabel(r'$\log_{10}\mathcal{B}$')#,fontsize=16)
-ax.set_yticklabels([])
+#ax.set_yticklabels([])
 
 
 #ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
@@ -277,10 +294,11 @@ fig= figure(3)
 ax1 = fig.add_subplot(111)
 ax1.hist(totallum[0:1000],bins=nbins,histtype='step',ec='black')
 #ax1.set_xlim(-9,-8)
+#ax1.set_xlim(-3.5,-2.5)
 ax1.set_xlim(-6.5,-4.5)
 ax1.set_ylim(0,250)
 ax1.set_ylabel(r'$N_{\mbox{{\footnotesize obs}}}$')#,fontsize=16)
-ax1.set_xlabel(r'$\log_{10}\mbox{Total }\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
+ax1.set_xlabel(r'$\log_{10}\mathrm{Total }\frac{\mathrm{d} N_{\gamma}}{\mathrm{d} \mathrm{A}\, \mathrm{d}t} [\mathrm{cm}^{-2}\mathrm{ s}^{-1}]$')#,fontsize=16)
 
 ax2=ax1.twiny()
 

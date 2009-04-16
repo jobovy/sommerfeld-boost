@@ -112,15 +112,15 @@ params = {'backend': 'ps',
 rcParams.update(params)
 #rc('text',usetex=True)
 fig= figure()
-im= imshow(boostS,origin='lower',#cmap=cm.gray,
+im= imshow(boostS,origin='lower',cmap=cm.gist_yarg,
        extent=[-3,-1,-5,-2],aspect=2./3.)
 axis([-3,-1,-5,-2])
 ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
 if einasto==1:
-    text(-1.75,-4.75,r'$\alpha$ = '+str(gamma))#,fontsize=16)
+    text(-1.75,-4.75,r'$\alpha$ = '+str(gamma),color='w')#,fontsize=16)
 else:
-    text(-1.75,-4.75,r'$\gamma$ = '+str(gamma))#,fontsize=16)
+    text(-1.75,-4.75,r'$\gamma$ = '+str(gamma),color='w')#,fontsize=16)
 CB1= colorbar(im,shrink=0.87)
 levels=linspace(0,5,11)
 #cont= contour(data['S'],levels,origin='lower',linewidths=1,colors='k',

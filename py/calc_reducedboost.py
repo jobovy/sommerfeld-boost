@@ -142,12 +142,12 @@ params = {'backend': 'ps',
 rcParams.update(params)
 #rc('text',usetex=True)
 fig= figure()
-im= imshow(redboostS,origin='lower',#cmap=cm.gray,
+im= imshow(redboostS,origin='lower',cmap=cm.gist_yarg,
        extent=[-3,-1,-5,-2],aspect=2./3.)
 axis([-3,-1,-5,-2])
 ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
 xlabel(r'$\log_{10}\alpha$')#,fontsize=16)
-text(-2,-4.75,r'$M = 10^{'+str(logMh)+r'} M_{\odot}$',color='w')#,fontsize=16)
+text(-2,-4.75,r'$M = 10^{'+str(logMh)+r'} M_{\odot}$')#,color='w')#,fontsize=16)
 CB1= colorbar(im,shrink=0.87)
 levels=linspace(0,5,11)
 #cont= contour(data['S'],levels,origin='lower',linewidths=1,colors='k',

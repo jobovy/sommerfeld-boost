@@ -164,7 +164,7 @@ restorefile.close()
 
 
 #also calculate the background in this range
-back= log10(2.69156*10**-10*2*pi*(1.-cos(rs/D)))
+back= log10(2.69156*10**-7*2*pi*(1.-cos(rs/D)))
 
 #Then plot
 plotfilename= 'flux_'+sys.argv[1]+'_'+str(nas)
@@ -187,7 +187,7 @@ params = {'backend': 'ps',
 rcParams.update(params)
 #rc('text',usetex=True)
 fig= figure()
-im= imshow(flux,origin='lower',#cmap=cm.gray,
+im= imshow(flux,origin='lower',cmap=cm.gist_yarg,
        extent=[-3,-1,-5,-2],aspect=2./3.)
 axis([-3,-1,-5,-2])
 ylabel(r'$\log_{10}(m_{\phi}/m_\chi)$')#,fontsize=16)
