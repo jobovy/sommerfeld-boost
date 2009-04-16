@@ -1,0 +1,95 @@
+Dear Editor,
+
+Please find below the response to the referees' comments for the
+submission "Substructure boosts to dark matter annihilation from
+Sommerfeld enhancement" by myself (submission # DC10513).
+
+I have made changes following the referee's suggestions and have also
+update figures 1, 2, 5, 6, and 7 to make the label in these plots more
+clear to the reader.
+
+A detailed list of the changes is: 
+
+- I slightly rewrote the paragraph containing Eq. 20 to include the
+definition of the virial radius;
+
+- I fixed a type which the referee found in the paragraph below Eq. 39;
+
+- I changed the color of the label in figures 1, 2, 5, 6, and 7 from
+  black to white;
+
+- I enlarged figures 9, 10, 12, 14, arranging the two panels now below
+  each other. I updated the caption of figure 10 to reflect this
+  change.
+
+Please contact me by the information given below with any questions
+regarding this re-submission.
+
+With kind regards,
+
+Jo Bovy
+
+-
+Jo Bovy
+Ctr. for Cosmology & Particle Physics, 
+Dept. of Physics
+New York University
+4 Washington Place
+New York, NY 10003
+jb2777@nyu.edu
+
+
+In what follows the referee's comments are indented.
+
+
+
+==================================================================
+
+	Dear Dr. Bovy:
+	
+	The manuscript ``Substructure boosts to dark matter
+	annihilation from Sommerfeld enhancement'' (dc10513) by Bovy,J
+	has been reviewed by one of our referees.  Comments from the
+	report are enclosed for your consideration.
+
+	When you resubmit your manuscript, please include a summary of
+	the changes made, and a brief response to all recommendations
+	and criticisms.
+
+	Sincerely,
+	
+	Rashmi Ray
+        Senior Assistant Editor
+        Physical Review D
+
+	----------------------------------------------------------------
+	Report:
+	----------------------------------------------------------------
+	This is a very good paper. It makes a careful, intelligent
+	contribution to the hot topic of boost factors in Galactic
+	dark matter annihilation.  I am also impressed with the
+	clarity of exposition.
+
+	I have two small suggestions and a typo to convey to the
+	author, for his/her optional consideration.
+
+	1. Typo: toward the end of the paragraph following Eq 39, an
+           enhancement of 10^-2 is reported; I believe the author
+           means 10^+2.
+
+That is correct, I did mean 10^+2. This has been corrected in the text.
+
+
+	2. In Eq 20, the virial radius r_vir is used; I don't
+	   believe it is defined in the text.
+
+I have added the definition of the virial radius in the paragraph
+containing Eq.20 before the definition of the concentration. I have
+also moved up the definition of the virial mass from where it was
+before (it used to be at the end of that same paragraph). 
+
+	3. Figs 9, 10, 12, 14 are too small in the copy I received
+	   from APS.  Perhaps this is not the author's issue.
+
+This was my fault. I have replaced these figures with larger versions.
+-------------------------------------------------------------------------
