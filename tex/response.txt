@@ -8,7 +8,7 @@ I have made changes following the referee's suggestions and have also
 update figures 1, 2, 5, 6, and 7 to make the label in these plots more
 clear to the reader.
 
-A detailed list of the changes is: 
+A detailed list of the main changes is: 
 
 - I slightly rewrote the paragraph containing Eq. 20 to include the
 definition of the virial radius;
@@ -19,8 +19,34 @@ definition of the virial radius;
   black to white;
 
 - I enlarged figures 9, 10, 12, 14, arranging the two panels now below
-  each other. I updated the caption of figure 10 to reflect this
-  change.
+  each other. I updated the text and the caption of figure 10 to
+  reflect this change.
+
+- In the conclusion I elaborated a fit further on the implications of
+  the possibility that the Galactic halo consists for a large part of
+  cold dark matter streams, adding a reference to a paper by Afshordi,
+  Mohayaee, and Bertschinger which discusses boosts due to such tidal
+  debris.
+
+- I also updated all of the references to papers which have gotton
+  published since I first submitted this paper.
+
+In addition to these I made a number of cosmetic changes and slight
+rewordings to the text to improve the clarity of the exposition, the
+most important of which are:
+
+- Some rewordings in the abstract (including spelling out the proper
+  name of the Fermi telescope, and emphasizing more clearly what is
+  new in the present paper);
+
+- I renamed Sec. III A "Some details of the particle physics model"
+  instead of "Some details of the particle physics"
+
+- I moved up the sentence in the paragraph above Eq. 13 which states
+  that the DM annihilation flux depends on the density squared to the
+  beginning of that section, such that the point of discussing the
+  dark matter profile at length is clear at the start of the section
+  on the shape of the profile.
 
 Please contact me by the information given below with any questions
 regarding this re-submission.
